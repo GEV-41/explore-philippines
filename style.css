@@ -1,0 +1,2093 @@
+/* =========================================================
+   EXPLOREPH — CLEAN MASTER STYLESHEET
+   ========================================================= */
+
+/* ---------- 1. RESET + VARIABLES ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #087ea4;
+    --dark: #073247;
+    --light: #f4f9fa;
+    --cream: #f7f1e5;
+    --text: #173b4b;
+    --muted: #6c8189;
+    --white: #ffffff;
+    --border: #dce8ec;
+    --shadow: 0 15px 40px rgba(4, 48, 67, .12);
+
+    /* Logged-in / dashboard theme */
+    --ep-bg: #f6f8fb;
+    --ep-surface: #ffffff;
+    --ep-surface-2: #f1f5f9;
+    --ep-text: #202124;
+    --ep-muted: #6b7280;
+    --ep-border: #dfe5ec;
+    --ep-accent: #1769aa;
+    --ep-accent-light: #e8f1f8;
+
+    /* Dark theme */
+    --ep-dark: #080d16;
+    --ep-dark-surface: #111827;
+    --ep-dark-surface-2: #1b2533;
+    --ep-dark-border: #293548;
+}
+
+
+/* ---------- 2. GLOBAL ---------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--ep-bg);
+    transition:
+        background-color .25s ease,
+        color .25s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   3. MAIN NAVIGATION
+   ========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 5000;
+    background: rgba(255, 255, 255, .97);
+    border-bottom: 1px solid #e5e7eb;
+    backdrop-filter: blur(12px);
+}
+
+.nav {
+    width: 92%;
+    max-width: 1200px;
+    min-height: 72px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    color: var(--dark);
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+nav > a,
+.dropdown > a {
+    font-size: 14px;
+    font-weight: 700;
+    color: #294653;
+
+    transition:
+        color .2s ease,
+        background .2s ease;
+}
+
+nav > a:hover,
+.dropdown > a:hover {
+    color: var(--blue);
+}
+
+.nav-login {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: var(--dark);
+    color: #fff !important;
+}
+
+.nav-login:hover {
+    background: var(--blue);
+    color: #fff !important;
+}
+
+.menu-btn {
+    display: none;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--dark);
+    font-size: 27px;
+}
+
+
+/* =========================================================
+   4. DESTINATION DROPDOWN
+   ========================================================= */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 4px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: -15px;
+
+    z-index: 6000;
+
+    display: none;
+
+    width: 220px;
+    padding: 8px;
+
+    background: #fff;
+    border: 1px solid #e1e7eb;
+    border-radius: 14px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 11px 13px;
+
+    color: #263f4b;
+    background: transparent;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: .2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: #eaf6fa;
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   5. BUTTONS
+   ========================================================= */
+
+.btn,
+.btn-outline,
+.btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 40px;
+
+    font-weight: 800;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease;
+}
+
+.btn {
+    padding: 13px 23px;
+
+    border: 0;
+
+    background: var(--blue);
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    padding: 12px 23px;
+
+    border: 1px solid #fff;
+
+    color: #fff;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: var(--dark);
+}
+
+.btn-outline-dark {
+    padding: 12px 23px;
+
+    border: 1px solid var(--border);
+
+    color: var(--dark);
+}
+
+.btn-outline-dark:hover {
+    background: var(--dark);
+    color: #fff;
+}
+
+
+/* =========================================================
+   6. HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    height: 680px;
+
+    display: flex;
+    align-items: center;
+}
+
+.hero > img,
+.destination-hero > img {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 37, 52, .94),
+            rgba(3, 37, 52, .58),
+            rgba(3, 37, 52, .08)
+        );
+}
+
+.hero-text,
+.destination-hero-text {
+    position: relative;
+    z-index: 2;
+
+    width: 92%;
+    max-width: 1180px;
+
+    margin: auto;
+
+    color: #fff;
+}
+
+.hero h1 {
+    max-width: 850px;
+
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: .95;
+
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #9be4f1;
+}
+
+.hero-text > p:not(.eyebrow) {
+    max-width: 620px;
+
+    margin: 25px 0;
+
+    color: #e8f6f9;
+
+    font-size: 18px;
+}
+
+.eyebrow {
+    margin-bottom: 10px;
+
+    color: var(--blue);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.hero .eyebrow,
+.destination-hero .eyebrow {
+    color: #a5e7f2;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   7. SEARCH
+   ========================================================= */
+
+.search-box {
+    position: relative;
+    z-index: 10;
+
+    width: 90%;
+    max-width: 1000px;
+
+    margin: -45px auto 0;
+    padding: 13px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+}
+
+.search-box > div {
+    flex: 1;
+    padding: 8px 15px;
+}
+
+.search-box small {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.search-box input,
+.search-box select {
+    width: 100%;
+
+    border: 0;
+    outline: 0;
+
+    background: #fff;
+
+    color: var(--text);
+
+    font-size: 15px;
+}
+
+.search-box button {
+    padding: 15px 28px;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: var(--dark);
+
+    color: #fff;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   8. GENERAL SECTIONS
+   ========================================================= */
+
+.section,
+.page {
+    width: 92%;
+    max-width: 1180px;
+
+    margin: auto;
+}
+
+.section {
+    padding: 110px 0;
+}
+
+.page {
+    padding: 40px 0 100px;
+}
+
+.section-title {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+}
+
+.section-title h2 {
+    color: var(--dark);
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    line-height: 1;
+}
+
+.section-title > a {
+    color: var(--blue);
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   9. DESTINATIONS
+   ========================================================= */
+
+.destination-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.destination-card {
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, .06);
+
+    transition: .3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+}
+
+.destination-card > img {
+    height: 245px;
+}
+
+.card-body {
+    padding: 22px;
+}
+
+.card-body small {
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.card-body h3 {
+    margin: 5px 0;
+
+    color: var(--dark);
+
+    font-size: 25px;
+}
+
+.card-body p {
+    margin-bottom: 17px;
+
+    color: var(--muted);
+}
+
+.card-body a {
+    color: var(--blue);
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   10. DARK FEATURE SECTION
+   ========================================================= */
+
+.dark-section {
+    padding: 90px 4%;
+
+    background: var(--dark);
+
+    color: #fff;
+}
+
+.dark-section .section-title {
+    max-width: 1180px;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.dark-section h2 {
+    color: #fff;
+}
+
+.dark-section .section-title > a {
+    color: #9be4f1;
+}
+
+.experience-grid {
+    max-width: 1180px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+.experience {
+    padding: 28px 22px;
+
+    border: 1px solid rgba(255, 255, 255, .15);
+
+    border-radius: 17px;
+
+    transition: .3s ease;
+}
+
+.experience:hover {
+    background: rgba(255, 255, 255, .07);
+
+    transform: translateY(-5px);
+}
+
+.experience span {
+    font-size: 35px;
+}
+
+.experience h3 {
+    margin: 10px 0 5px;
+}
+
+.experience p {
+    color: #b7ccd4;
+}
+
+
+/* =========================================================
+   11. CTA
+   ========================================================= */
+
+.cta {
+    padding: 110px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf8fb,
+            #f8f0df
+        );
+}
+
+.cta h2 {
+    margin-bottom: 15px;
+
+    color: var(--dark);
+
+    font-size: clamp(40px, 6vw, 70px);
+
+    line-height: 1;
+}
+
+.cta p:not(.eyebrow) {
+    margin-bottom: 25px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   12. FOOTER
+   ========================================================= */
+
+footer {
+    background: #052d42;
+
+    color: #a9c2cc;
+}
+
+.footer-grid {
+    width: 92%;
+    max-width: 1180px;
+
+    margin: auto;
+    padding: 60px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 35px;
+}
+
+.footer-grid .logo,
+.footer-grid h4 {
+    color: #fff;
+}
+
+.footer-grid p {
+    max-width: 350px;
+
+    margin-top: 15px;
+}
+
+.footer-grid h4 {
+    margin-bottom: 12px;
+}
+
+.footer-grid a:not(.logo) {
+    display: block;
+
+    margin: 7px 0;
+}
+
+.footer-grid a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    padding: 20px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, .1);
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   13. DESTINATION PAGES
+   ========================================================= */
+
+.destination-hero {
+    position: relative;
+
+    height: 500px;
+
+    display: flex;
+    align-items: end;
+}
+
+.destination-hero-text {
+    padding-bottom: 70px;
+}
+
+.destination-hero-text h1 {
+    font-size: clamp(50px, 8vw, 90px);
+
+    line-height: .95;
+
+    letter-spacing: -4px;
+}
+
+.destination-hero-text p:last-child {
+    margin-top: 15px;
+
+    font-size: 18px;
+}
+
+.breadcrumb {
+    margin-bottom: 55px;
+
+    color: var(--muted);
+}
+
+.breadcrumb a {
+    color: var(--blue);
+}
+
+.destination-intro {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        .7fr;
+
+    gap: 80px;
+
+    margin-bottom: 90px;
+}
+
+.destination-intro h2,
+.about-content h2 {
+    margin-bottom: 20px;
+
+    color: var(--dark);
+
+    font-size: 50px;
+
+    line-height: 1;
+}
+
+.destination-intro p,
+.about-content p {
+    max-width: 700px;
+
+    color: var(--muted);
+}
+
+.quick-info {
+    padding: 25px;
+
+    background: var(--light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+}
+
+.quick-info strong,
+.quick-info span {
+    display: block;
+}
+
+.quick-info strong {
+    margin-top: 10px;
+}
+
+.quick-info span {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   14. ACTIVITIES
+   ========================================================= */
+
+.activity-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.activity-card {
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 25px rgba(0, 0, 0, .06);
+}
+
+.activity-card img {
+    height: 240px;
+}
+
+.activity-card h3,
+.activity-card p {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.activity-card h3 {
+    margin-top: 18px;
+}
+
+.activity-card p {
+    margin-bottom: 20px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   15. INFO BANNER
+   ========================================================= */
+
+.info-banner {
+    margin-top: 90px;
+
+    padding: 55px;
+
+    background: var(--cream);
+
+    border-radius: 25px;
+}
+
+.info-banner h2 {
+    color: var(--dark);
+
+    font-size: 38px;
+}
+
+.info-banner p {
+    margin-bottom: 20px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   16. PAGE HEADERS
+   ========================================================= */
+
+.page-header {
+    padding: 100px 5%;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9f8fb,
+            #f8f0df
+        );
+}
+
+.page-header h1 {
+    color: var(--dark);
+
+    font-size: clamp(45px, 7vw, 75px);
+
+    line-height: 1;
+}
+
+.page-header p:last-child {
+    margin-top: 15px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   17. FILTERS
+   ========================================================= */
+
+.filters {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+}
+
+.filters button {
+    padding: 10px 18px;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 30px;
+
+    font-weight: 700;
+}
+
+.filters button:hover {
+    background: var(--dark);
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   18. HOTEL / RESTAURANT LISTINGS
+   ========================================================= */
+
+.listing-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.listing {
+    display: grid;
+
+    grid-template-columns: 220px 1fr;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 7px 25px rgba(0, 0, 0, .05);
+}
+
+.listing img {
+    height: 230px;
+}
+
+.listing > div {
+    padding: 25px;
+}
+
+.listing span {
+    color: var(--blue);
+
+    font-weight: 800;
+}
+
+.listing h2 {
+    color: var(--dark);
+}
+
+.listing p {
+    color: var(--muted);
+}
+
+.listing strong {
+    color: #d29a31;
+}
+
+.hotel-location,
+.restaurant-location {
+    margin-top: 12px;
+
+    color: #667085;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   19. MORE HOTELS / RESTAURANTS
+   ========================================================= */
+
+.more-hotels,
+.more-restaurants {
+    max-width: 900px;
+
+    margin: 60px auto 35px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: #fff;
+
+    color: #202124;
+
+    border: 1px solid var(--ep-border);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, .08);
+}
+
+.more-hotels h2,
+.more-restaurants h2 {
+    margin-bottom: 15px;
+
+    color: var(--ep-accent);
+
+    font-size: 30px;
+
+    font-weight: 800;
+}
+
+.more-hotels p,
+.more-restaurants p {
+    margin: 10px 0;
+
+    color: #374151;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.more-hotels strong,
+.more-restaurants strong {
+    color: var(--ep-accent);
+}
+
+.hotel-manager-btn,
+.restaurant-manager-btn {
+    display: inline-block;
+
+    margin-top: 22px;
+
+    padding: 14px 26px;
+
+    background: var(--ep-accent);
+
+    color: #fff !important;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: .2s ease;
+}
+
+.hotel-manager-btn:hover,
+.restaurant-manager-btn:hover {
+    transform: translateY(-2px);
+
+    opacity: .9;
+}
+
+
+/* =========================================================
+   20. ABOUT
+   ========================================================= */
+
+.about-content {
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        .8fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-box {
+    padding: 40px;
+
+    background: var(--light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+}
+
+.about-box strong {
+    display: block;
+
+    color: var(--blue);
+
+    font-size: 50px;
+}
+
+
+/* =========================================================
+   21. LOGIN / SIGNUP
+   ========================================================= */
+
+.auth-page {
+    min-height: 100vh;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf8fb,
+            #f8f0df
+        );
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 460px;
+
+    padding: 45px;
+
+    background: #fff;
+
+    border-radius: 25px;
+
+    box-shadow: var(--shadow);
+}
+
+.auth-card .logo {
+    display: inline-block;
+
+    margin-bottom: 30px;
+}
+
+.auth-card h1 {
+    color: var(--dark);
+
+    font-size: 35px;
+}
+
+.auth-card > p {
+    margin-bottom: 25px;
+
+    color: var(--muted);
+}
+
+.auth-card form {
+    display: grid;
+
+    gap: 8px;
+}
+
+.auth-card label {
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+}
+
+.auth-card input {
+    padding: 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.auth-card input:focus {
+    border-color: var(--blue);
+}
+
+.full {
+    width: 100%;
+
+    margin-top: 20px;
+}
+
+.auth-bottom {
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+.auth-bottom a,
+.back-home {
+    color: var(--blue);
+
+    font-weight: 800;
+}
+
+.back-home {
+    display: block;
+
+    margin-top: 25px;
+
+    text-align: center;
+}
+
+.success {
+    margin-top: 15px;
+
+    color: #16804a;
+
+    font-weight: 700;
+}
+
+.error {
+    margin-top: 15px;
+
+    color: #c43b3b;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   22. RANDOM PHOTO BACKGROUND
+   ========================================================= */
+
+/*
+   script.js sets:
+
+   --explore-random-bg
+
+   The image remains visible while the black overlay
+   improves readability.
+*/
+
+html,
+body {
+    min-height: 100%;
+}
+
+body.explore-random-background {
+    position: relative;
+
+    background-image: var(--explore-random-bg);
+
+    background-color: #111827;
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+}
+
+body.explore-random-background::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background: rgba(0, 0, 0, .50);
+}
+
+body.explore-random-background > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+/* Let the photo show through the main page. */
+
+body.explore-random-background main,
+body.explore-random-background .page,
+body.explore-random-background .content,
+body.explore-random-background .container,
+body.explore-random-background .wrapper,
+body.explore-random-background .page-container,
+body.explore-random-background .main-container {
+    background: transparent;
+}
+
+/* Keep cards readable. */
+
+body.explore-random-background .destination-card,
+body.explore-random-background .hotel-card,
+body.explore-random-background .restaurant-card,
+body.explore-random-background .activity-card,
+body.explore-random-background .listing,
+body.explore-random-background .card {
+    background: rgba(255, 255, 255, .94);
+}
+
+
+/* =========================================================
+   23. USER THEME PHOTO
+   ========================================================= */
+
+body.explore-theme-photo {
+    background-size: cover !important;
+
+    background-position: center !important;
+
+    background-repeat: no-repeat !important;
+
+    background-attachment: fixed !important;
+}
+
+body.explore-theme-photo::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background: rgba(0, 0, 0, .50);
+}
+
+body.explore-theme-photo > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   24. LOGGED-IN LIGHT THEME
+   ========================================================= */
+
+body.explore-logged-in {
+    color: var(--ep-text);
+
+    background-color: var(--ep-bg);
+}
+
+body.explore-logged-in .accent,
+body.explore-logged-in .brand,
+body.explore-logged-in .active {
+    color: var(--ep-accent);
+}
+
+body.explore-logged-in .primary,
+body.explore-logged-in .primary-btn,
+body.explore-logged-in .btn-primary {
+    background: var(--ep-accent);
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   25. DARK MODE — ONE SYSTEM
+   ========================================================= */
+
+body.explore-dark,
+body.dark-mode {
+    --ep-bg: #080d16;
+    --ep-surface: #111827;
+    --ep-surface-2: #1b2533;
+    --ep-text: #f5f7fa;
+    --ep-muted: #aeb9c7;
+    --ep-border: #293548;
+
+    background-color: #080d16 !important;
+
+    color: #f5f7fa !important;
+
+    color-scheme: dark;
+}
+
+
+/* ---------- DARK NAVIGATION ---------- */
+
+body.explore-dark header,
+body.dark-mode header,
+body.explore-dark .topbar,
+body.dark-mode .topbar,
+body.explore-dark .navbar,
+body.dark-mode .navbar,
+body.explore-dark .sidebar,
+body.dark-mode .sidebar {
+    background: #111827 !important;
+
+    color: #f5f7fa !important;
+
+    border-color: #293548 !important;
+}
+
+body.explore-dark nav > a,
+body.explore-dark .dropdown > a {
+    color: #f3f7fa !important;
+}
+
+body.explore-dark nav > a:hover,
+body.explore-dark .dropdown > a:hover {
+    color: #69b3f5 !important;
+}
+
+body.explore-dark .dropdown-menu {
+    background: #111827 !important;
+
+    border-color: #293548 !important;
+}
+
+body.explore-dark .dropdown-menu a {
+    color: #f3f7fa !important;
+}
+
+body.explore-dark .dropdown-menu a:hover {
+    background: #1d2939 !important;
+
+    color: #69b3f5 !important;
+}
+
+
+/* ---------- DARK CARDS ---------- */
+
+body.explore-dark .card,
+body.explore-dark .post,
+body.explore-dark .panel,
+body.explore-dark .box,
+body.explore-dark .service,
+body.explore-dark .feed-card,
+body.explore-dark .manager-card,
+body.explore-dark .booking-card,
+body.explore-dark .message-card,
+body.explore-dark .profile-card,
+body.explore-dark .destination-card,
+body.explore-dark .listing,
+body.dark-mode .destination-card,
+body.dark-mode .service,
+body.dark-mode .feed-card,
+body.dark-mode .manager-card {
+    background: #111827 !important;
+
+    color: #f5f7fa !important;
+
+    border-color: #293548 !important;
+}
+
+
+/* ---------- DARK TEXT ---------- */
+
+body.explore-dark h1,
+body.explore-dark h2,
+body.explore-dark h3,
+body.explore-dark h4,
+body.explore-dark h5,
+body.explore-dark h6,
+body.explore-dark p,
+body.explore-dark label,
+body.explore-dark strong,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode strong {
+    color: #f5f7fa !important;
+}
+
+body.explore-dark .muted,
+body.explore-dark small,
+body.dark-mode p {
+    color: #aeb9c7 !important;
+}
+
+
+/* ---------- DARK SIDEBAR ---------- */
+
+body.explore-dark .menu-item,
+body.dark-mode .menu-item {
+    color: #dce3ec !important;
+}
+
+body.explore-dark .menu-item:hover,
+body.dark-mode .menu-item:hover {
+    background: #1d2939 !important;
+}
+
+body.explore-dark .menu-item.active,
+body.dark-mode .menu-item.active {
+    background: #193b59 !important;
+
+    color: #69b3f5 !important;
+}
+
+
+/* ---------- DARK INPUTS ---------- */
+
+body.explore-dark input,
+body.explore-dark textarea,
+body.explore-dark select,
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode .chat-input input {
+    background: #1b2533 !important;
+
+    color: #fff !important;
+
+    border-color: #344154 !important;
+}
+
+body.explore-dark input::placeholder,
+body.explore-dark textarea::placeholder,
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #9ca8b8 !important;
+}
+
+
+/* ---------- DARK BUTTONS ---------- */
+
+body.explore-dark .btn,
+body.explore-dark .btn-primary,
+body.explore-dark .primary,
+body.explore-dark .primary-btn,
+body.explore-dark .explore-button,
+body.explore-dark .chat-button,
+body.explore-dark .hotel-manager-btn,
+body.explore-dark .restaurant-manager-btn,
+body.dark-mode .explore-button,
+body.dark-mode .chat-button,
+body.dark-mode .hotel-manager-btn,
+body.dark-mode .restaurant-manager-btn {
+    background: #1769aa !important;
+
+    color: #fff !important;
+}
+
+
+/* ---------- DARK ACCOUNT / CHAT / SEARCH ---------- */
+
+body.explore-dark .account-menu,
+body.dark-mode .account-menu,
+body.explore-dark .chat-window,
+body.dark-mode .chat-window,
+body.explore-dark .search-results,
+body.dark-mode .search-results {
+    background: #111827 !important;
+
+    color: #fff !important;
+
+    border-color: #293548 !important;
+}
+
+body.explore-dark .account-link,
+body.dark-mode .account-link {
+    color: #e5e7eb !important;
+}
+
+body.explore-dark .account-link:hover,
+body.dark-mode .account-link:hover,
+body.dark-mode .search-result:hover {
+    background: #1d2939 !important;
+}
+
+body.explore-dark .chat-body,
+body.dark-mode .chat-body {
+    background: #0f1724 !important;
+}
+
+body.explore-dark .manager-message,
+body.dark-mode .manager-message {
+    background: #1b2533 !important;
+
+    color: #fff !important;
+}
+
+
+/* =========================================================
+   26. DARK HOTEL / RESTAURANT CTA
+   ========================================================= */
+
+body.explore-dark .more-hotels,
+body.explore-dark .more-restaurants,
+body.dark-mode .more-hotels,
+body.dark-mode .more-restaurants {
+    background: #111827 !important;
+
+    color: #f5f7fa !important;
+
+    border-color: #293548 !important;
+}
+
+body.explore-dark .more-hotels h2,
+body.explore-dark .more-restaurants h2,
+body.dark-mode .more-hotels h2,
+body.dark-mode .more-restaurants h2 {
+    color: #69b3f5 !important;
+}
+
+body.explore-dark .more-hotels p,
+body.explore-dark .more-restaurants p,
+body.dark-mode .more-hotels p,
+body.dark-mode .more-restaurants p {
+    color: #d7dee8 !important;
+}
+
+body.explore-dark .hotel-location,
+body.explore-dark .restaurant-location,
+body.dark-mode .hotel-location,
+body.dark-mode .restaurant-location {
+    color: #aeb9c7 !important;
+}
+
+
+/* =========================================================
+   27. DARK RANDOM PHOTO MODE
+   ========================================================= */
+
+body.explore-dark.explore-random-background,
+body.dark-mode.explore-random-background {
+    background-color: #080d16 !important;
+}
+
+body.explore-dark.explore-random-background::before,
+body.dark-mode.explore-random-background::before {
+    background: rgba(3, 7, 13, .72);
+}
+
+
+/* =========================================================
+   28. LOGIN / SIGNUP PHOTO EXCEPTION
+   ========================================================= */
+
+body.login-body,
+body.signup-body {
+    background-image: none;
+}
+
+
+/* =========================================================
+   29. MOBILE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 20px;
+
+        background: #fff;
+
+        box-shadow: var(--shadow);
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        display: block;
+
+        width: 100%;
+
+        padding-left: 15px;
+
+        box-shadow: none;
+    }
+
+    .destination-grid,
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .destination-intro,
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    body.explore-dark nav {
+        background: #111827 !important;
+    }
+}
+
+
+/* =========================================================
+   30. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .hero {
+        height: 620px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .search-box {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        margin-top: -30px;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+    .destination-grid,
+    .experience-grid,
+    .activity-grid,
+    .listing-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        display: block;
+    }
+
+    .section-title > a {
+        display: inline-block;
+
+        margin-top: 12px;
+    }
+
+    .listing {
+        grid-template-columns: 1fr;
+    }
+
+    .listing img {
+        height: 230px;
+    }
+
+    .destination-intro h2,
+    .about-content h2 {
+        font-size: 38px;
+    }
+
+    .info-banner {
+        padding: 35px 25px;
+    }
+
+    .auth-card {
+        padding: 30px 22px;
+    }
+
+    .page-header {
+        padding: 75px 25px;
+    }
+}/* =========================================================
+   EXPLOREPH DESTINATION BUTTONS
+   ========================================================= */
+
+.destination-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.destination-buttons a,
+.destination-buttons button,
+.destination-card .btn,
+.destination-card .explore-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 20px;
+
+    background: #087ea4;
+    color: #ffffff !important;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.destination-buttons a:hover,
+.destination-buttons button:hover,
+.destination-card .btn:hover,
+.destination-card .explore-button:hover {
+    background: #073247;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(0, 0, 0, .15);
+}
+
+
+/* Destination card button row */
+
+.destination-card .card-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 18px;
+}
+
+
+/* Secondary destination button */
+
+.destination-card .secondary-btn {
+    background: transparent;
+
+    color: #087ea4 !important;
+
+    border: 1px solid #087ea4;
+}
+
+.destination-card .secondary-btn:hover {
+    background: #087ea4;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   DESTINATION BUTTONS — RANDOM BACKGROUND
+   ========================================================= */
+
+body.explore-random-background
+.destination-card .btn,
+body.explore-random-background
+.destination-card .explore-button {
+    background: #087ea4 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   DESTINATION BUTTONS — DARK MODE
+   ========================================================= */
+
+body.explore-dark
+.destination-card .btn,
+body.explore-dark
+.destination-card .explore-button,
+body.dark-mode
+.destination-card .btn,
+body.dark-mode
+.destination-card .explore-button {
+    background: #1769aa !important;
+
+    color: #ffffff !important;
+
+    border-color: #1769aa !important;
+}
+
+body.explore-dark
+.destination-card .btn:hover,
+body.explore-dark
+.destination-card .explore-button:hover,
+body.dark-mode
+.destination-card .btn:hover,
+body.dark-mode
+.destination-card .explore-button:hover {
+    background: #2385cf !important;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   DESTINATION NAV BUTTONS
+   ========================================================= */
+
+.destination-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.destination-nav a {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    background: #087ea4;
+
+    color: #ffffff !important;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: .2s ease;
+}
+
+.destination-nav a:hover {
+    background: #073247;
+
+    color: #ffffff !important;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .destination-buttons,
+    .destination-card .card-buttons,
+    .destination-nav {
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+    .destination-buttons a,
+    .destination-buttons button,
+    .destination-card .btn,
+    .destination-card .explore-button,
+    .destination-nav a {
+        width: 100%;
+
+        text-align: center;
+    }
+}/* =====================================================
+   FIX: EXPLOREPH HEADER / DESTINATIONS NAVIGATION
+   Keep the navigation ABOVE ALL PAGE CONTENT
+   ===================================================== */
+
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 99999 !important;
+    isolation: isolate;
+}
+
+/* Keep the navigation itself above hero/content */
+header .nav,
+header nav,
+#mainNav {
+    position: relative !important;
+    z-index: 100000 !important;
+}
+
+/* Destinations dropdown container */
+header .dropdown {
+    position: relative !important;
+    z-index: 100001 !important;
+}
+
+/* Destinations button */
+header .dropdown > a {
+    position: relative !important;
+    z-index: 100002 !important;
+    color: #294653 !important;
+    background: transparent !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Things to Do and other navigation links */
+header nav > a {
+    position: relative !important;
+    z-index: 100002 !important;
+    color: #294653 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Dropdown itself */
+header .dropdown-menu {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: -15px !important;
+    z-index: 100003 !important;
+}
+
+/* Make page content stay BELOW header */
+main,
+.hero,
+.page,
+.destination-hero,
+.page-header,
+section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Random background content must NEVER cover header */
+body.explore-random-background > * {
+    position: relative;
+    z-index: auto;
+}
+
+body.explore-random-background header {
+    position: sticky !important;
+    z-index: 99999 !important;
+}
+
+/* Dark mode */
+body.explore-dark header .dropdown > a,
+body.explore-dark header nav > a {
+    color: #ffffff !important;
+}

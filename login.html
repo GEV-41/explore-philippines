@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign In | ExplorePH</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           LOGIN PAGE
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .login-page {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            position: relative;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            transition: background-image 0.5s ease;
+        }
+
+        /* Dark overlay */
+
+        .login-page::before {
+            content: "";
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 20, 35, 0.78),
+                    rgba(0, 0, 0, 0.48)
+                );
+        }
+
+
+        /* =========================================
+           LOGIN CARD
+        ========================================= */
+
+        .login-card {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 440px;
+
+            padding: 42px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.30);
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .login-logo a {
+            text-decoration: none;
+
+            font-size: 32px;
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            color: #173f5f;
+        }
+
+        .login-logo span {
+            color: #0d9488;
+        }
+
+
+        /* =========================================
+           HEADING
+        ========================================= */
+
+        .login-card h1 {
+            margin: 0 0 8px;
+
+            text-align: center;
+
+            font-size: 29px;
+            color: #17202a;
+        }
+
+        .login-subtitle {
+            margin: 0 0 28px;
+
+            text-align: center;
+
+            color: #667085;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #27313b;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid #d5dce3;
+            border-radius: 9px;
+
+            background: #ffffff;
+
+            color: #202124;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #0d9488;
+
+            box-shadow:
+                0 0 0 3px rgba(13, 148, 136, 0.12);
+        }
+
+
+        /* =========================================
+           SIGN IN BUTTON
+        ========================================= */
+
+        .login-button {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 5px;
+
+            border: none;
+            border-radius: 9px;
+
+            background: #0d9488;
+
+            color: white;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .login-button:hover {
+            background: #087f73;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           DIVIDER
+        ========================================= */
+
+        .login-divider {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 25px 0;
+
+            color: #98a2b3;
+
+            font-size: 12px;
+        }
+
+        .login-divider::before,
+        .login-divider::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #e4e7ec;
+        }
+
+
+        /* =========================================
+           PROTOTYPE SOCIAL BUTTONS
+        ========================================= */
+
+        .social-login {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 10px;
+        }
+
+        .social-button {
+            padding: 11px;
+
+            border: 1px solid #d9dee5;
+
+            border-radius: 8px;
+
+            background: white;
+
+            color: #344054;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            text-align: center;
+        }
+
+        .social-button:hover {
+            background: #f7f9fb;
+        }
+
+
+        /* =========================================
+           SIGN UP LINK
+        ========================================= */
+
+        .signup-link {
+            text-align: center;
+
+            margin-top: 24px;
+
+            font-size: 14px;
+
+            color: #667085;
+        }
+
+        .signup-link a {
+            color: #0d9488;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           BACK HOME
+        ========================================= */
+
+        .back-home {
+            text-align: center;
+
+            margin-top: 18px;
+        }
+
+        .back-home a {
+            color: #667085;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+        .back-home a:hover {
+            color: #0d9488;
+        }
+
+
+        /* =========================================
+           PHOTO LABEL
+        ========================================= */
+
+        .photo-label {
+            position: absolute;
+
+            bottom: 18px;
+            left: 25px;
+
+            z-index: 3;
+
+            color: rgba(255,255,255,0.85);
+
+            font-size: 12px;
+
+            letter-spacing: 0.4px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .login-page {
+                padding: 18px;
+            }
+
+            .login-card {
+                padding: 30px 23px;
+
+                border-radius: 15px;
+            }
+
+            .login-card h1 {
+                font-size: 25px;
+            }
+
+            .login-logo a {
+                font-size: 29px;
+            }
+
+            .social-login {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-page" id="loginPage">
+
+    <div class="login-card">
+
+        <!-- LOGO -->
+
+        <div class="login-logo">
+
+            <a href="index.html">
+                Explore<span>PH</span>
+            </a>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+            Welcome Back
+        </h1>
+
+        <p class="login-subtitle">
+            Sign in to continue exploring the Philippines
+            with ExplorePH.
+        </p>
+
+
+        <!-- LOGIN FORM -->
+
+        <form onsubmit="loginUser(event)">
+
+            <div class="form-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-button"
+            >
+                Sign In
+            </button>
+
+        </form>
+
+
+        <!-- DIVIDER -->
+
+        <div class="login-divider">
+            <span>or continue with</span>
+        </div>
+
+
+        <!-- SOCIAL LOGIN PROTOTYPE -->
+
+        <div class="social-login">
+
+            <button
+                type="button"
+                class="social-button"
+                onclick="socialLoginNotice('Google')"
+            >
+                Google
+            </button>
+
+            <button
+                type="button"
+                class="social-button"
+                onclick="socialLoginNotice('Facebook')"
+            >
+                Facebook
+            </button>
+
+        </div>
+
+
+        <!-- SIGN UP -->
+
+        <div class="signup-link">
+
+            Don't have an ExplorePH account?
+
+            <a href="signup.html">
+                Create one
+            </a>
+
+        </div>
+
+
+        <!-- HOME -->
+
+        <div class="back-home">
+
+            <a href="index.html">
+                ← Back to ExplorePH
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="photo-label" id="photoLabel">
+        Explore the Philippines with ExplorePH
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================================
+       RANDOM EXPLOREPH BACKGROUND
+    ========================================= */
+
+    const explorePHPhotos = [
+
+        /* DESTINATIONS */
+
+        "bohol 2.jpg",
+        "bohol 3.jpg",
+        "bohol 4.jpg",
+        "bohol 5.jpg",
+
+        "mayon 2.jpg",
+        "mayon 3.jpg",
+        "mayon 4.jpg",
+
+        "Banaue.webp",
+        "banaue 2.jpg",
+        "banaue 3.webp",
+        "banaue 4.jpg",
+
+        "palawan.jpg",
+        "palawan 2.jpg",
+        "palawan 3.jpg",
+        "palawan 4.jpg",
+
+        "siargao.jpg",
+        "siargao2.jpg",
+        "siargao2.webp",
+        "siargao 3.jpg",
+        "siargao 4.jpg",
+
+        "vigan.jpg",
+        "vigan2.jpg",
+        "vigan3.jpg",
+        "vigan4.jpg",
+
+
+        /* HOTELS */
+
+        "boholhotel.jpg",
+        "palawanhotel.webp",
+        "siargaohotel.webp",
+        "viganhotel.jpg",
+        "banauehotel.jpg",
+        "mayonhotel.jpg",
+
+
+        /* RESTAURANTS */
+
+        "boholrestaurants.jpg",
+        "palawanrestaurants.jpg",
+        "siargaorestaurants.jpg",
+        "viganrestaurants.jpg",
+        "banaue restaurants.jpg",
+        "mayonrestaurants.jpg"
+    ];
+
+
+    function setRandomBackground() {
+
+        const page =
+            document.getElementById("loginPage");
+
+        const label =
+            document.getElementById("photoLabel");
+
+        const randomIndex =
+            Math.floor(
+                Math.random() * explorePHPhotos.length
+            );
+
+        const selectedPhoto =
+            explorePHPhotos[randomIndex];
+
+
+        page.style.backgroundImage =
+            `url("${selectedPhoto}")`;
+
+
+        label.textContent =
+            "Explore the Philippines with ExplorePH";
+    }
+
+
+    setRandomBackground();
+
+
+    /* =========================================
+       LOGIN
+    ========================================= */
+
+    function loginUser(event) {
+
+        event.preventDefault();
+
+
+        const username =
+            document
+                .getElementById("username")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        const savedUsername =
+            localStorage.getItem(
+                "explorephUsername"
+            );
+
+
+        const savedPassword =
+            localStorage.getItem(
+                "explorephPassword"
+            );
+
+
+        if (!savedUsername || !savedPassword) {
+
+            alert(
+                "No ExplorePH account was found.\n\n" +
+                "Please create an account first."
+            );
+
+            return;
+        }
+
+
+        if (
+            username === savedUsername &&
+            password === savedPassword
+        ) {
+
+            localStorage.setItem(
+                "explorephLoggedIn",
+                "true"
+            );
+
+
+            alert(
+                "Login successful!\n\n" +
+                "Welcome to ExplorePH."
+            );
+
+
+            window.location.href =
+                "dashboard.html";
+
+        } else {
+
+            alert(
+                "Incorrect username or password."
+            );
+
+        }
+
+    }
+
+
+    /* =========================================
+       SOCIAL LOGIN PROTOTYPE
+    ========================================= */
+
+    function socialLoginNotice(service) {
+
+        alert(
+            service +
+            " sign-in is currently a prototype option.\n\n" +
+            "For the school-project version, please use " +
+            "your ExplorePH username and password."
+        );
+
+    }
+
+</script>
+
+
+</body>
+</html>

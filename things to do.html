@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Things to Do | Explore Philippines</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+    <div class="nav">
+
+        <a href="index.html" class="logo">
+            Explore<span>PH</span>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="mainNav">
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <div class="dropdown">
+
+                <a href="#">
+                    Destinations ▾
+                </a>
+
+                <div class="dropdown-menu">
+
+                    <a href="bohol.html">
+                        Bohol
+                    </a>
+
+                    <a href="mayon.html">
+                        Mayon Volcano
+                    </a>
+
+                    <a href="Banaue.html">
+                        Banaue
+                    </a>
+
+                    <a href="Palawan.html">
+                        Palawan
+                    </a>
+
+                    <a href="Siargao.html">
+                        Siargao
+                    </a>
+
+                    <a href="vigan.html">
+                        Vigan
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="things to do.html">
+                Things to Do
+            </a>
+
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="restaurants.html">
+                Restaurants
+            </a>
+
+            <a href="About.html">
+                About
+            </a>
+
+            <a href="login.html" class="nav-login">
+                Sign In
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     PAGE HEADER
+========================= -->
+
+<section class="page-header">
+
+    <p class="eyebrow">
+        EXPERIENCES
+    </p>
+
+    <h1>
+        Things to Do
+    </h1>
+
+    <p>
+        Find your next Philippine adventure.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     ACTIVITIES
+========================= -->
+
+<main class="page">
+
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="filters">
+
+        <button onclick="filterCards('all')">
+            All
+        </button>
+
+        <button onclick="filterCards('beach')">
+            Beaches
+        </button>
+
+        <button onclick="filterCards('nature')">
+            Nature
+        </button>
+
+        <button onclick="filterCards('culture')">
+            Culture
+        </button>
+
+        <button onclick="filterCards('adventure')">
+            Adventure
+        </button>
+
+    </div>
+
+
+
+    <!-- ACTIVITY CARDS -->
+
+    <div class="activity-grid filter-grid">
+
+
+        <!-- =========================
+             BOHOL
+        ========================= -->
+
+        <div
+            class="activity-card filter-card"
+            data-category="nature"
+        >
+
+            <img
+                src="bohol 2.jpg"
+                alt="Chocolate Hills in Bohol"
+            >
+
+            <h3>
+                Explore Chocolate Hills
+            </h3>
+
+            <p>
+                Bohol • Nature
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             PALAWAN
+        ========================= -->
+
+        <div
+            class="activity-card filter-card"
+            data-category="beach"
+        >
+
+            <img
+                src="palawan 2.jpg"
+                alt="Palawan island"
+            >
+
+            <h3>
+                Island Hopping
+            </h3>
+
+            <p>
+                Palawan • Beach
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             SIARGAO
+        ========================= -->
+
+        <div
+            class="activity-card filter-card"
+            data-category="adventure"
+        >
+
+            <img
+                src="siargao2.jpg"
+                alt="Siargao surfing"
+            >
+
+            <h3>
+                Surfing
+            </h3>
+
+            <p>
+                Siargao • Adventure
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             VIGAN
+        ========================= -->
+
+        <div
+            class="activity-card filter-card"
+            data-category="culture"
+        >
+
+            <img
+                src="vigan2.jpg"
+                alt="Vigan heritage street"
+            >
+
+            <h3>
+                Explore Heritage Streets
+            </h3>
+
+            <p>
+                Vigan • Culture
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             BANAUE
+        ========================= -->
+
+        <div
+            class="activity-card filter-card"
+            data-category="nature"
+        >
+
+            <img
+                src="banaue 2.jpg"
+                alt="Banaue Rice Terraces"
+            >
+
+            <h3>
+                See the Rice Terraces
+            </h3>
+
+            <p>
+                Banaue • Nature
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             MAYON
+        ========================= -->
+
+        <div
+            class="activity-card filter-card"
+            data-category="culture"
+        >
+
+            <img
+                src="mayon 4.jpg"
+                alt="Mayon and Albay"
+            >
+
+            <h3>
+                Discover Local Culture
+            </h3>
+
+            <p>
+                Mayon • Culture
+            </p>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-bottom">
+
+        © 2026 Explore Philippines
+
+    </div>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

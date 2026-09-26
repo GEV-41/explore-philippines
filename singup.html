@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | ExplorePH</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           SIGNUP PAGE
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .signup-page {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            position: relative;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            transition: background-image 0.5s ease;
+        }
+
+
+        /* DARK OVERLAY */
+
+        .signup-page::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 20, 35, 0.78),
+                    rgba(0, 0, 0, 0.48)
+                );
+        }
+
+
+        /* =========================================
+           SIGNUP CARD
+        ========================================= */
+
+        .signup-card {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 470px;
+
+            padding: 40px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.30);
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+
+        /* =========================================
+           LOGO
+        ========================================= */
+
+        .signup-logo {
+            text-align: center;
+
+            margin-bottom: 24px;
+        }
+
+        .signup-logo a {
+            text-decoration: none;
+
+            font-size: 32px;
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            color: #173f5f;
+        }
+
+        .signup-logo span {
+            color: #0d9488;
+        }
+
+
+        /* =========================================
+           HEADING
+        ========================================= */
+
+        .signup-card h1 {
+            margin: 0 0 8px;
+
+            text-align: center;
+
+            font-size: 28px;
+
+            color: #17202a;
+        }
+
+        .signup-subtitle {
+            margin: 0 0 26px;
+
+            text-align: center;
+
+            color: #667085;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #27313b;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .form-group input {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border: 1px solid #d5dce3;
+
+            border-radius: 9px;
+
+            background: #ffffff;
+
+            color: #202124;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        .form-group input:focus {
+
+            border-color: #0d9488;
+
+            box-shadow:
+                0 0 0 3px rgba(13, 148, 136, 0.12);
+        }
+
+
+        /* =========================================
+           CREATE ACCOUNT BUTTON
+        ========================================= */
+
+        .signup-button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            margin-top: 7px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #0d9488;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+        .signup-button:hover {
+
+            background: #087f73;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================
+           LOGIN LINK
+        ========================================= */
+
+        .login-link {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            font-size: 14px;
+
+            color: #667085;
+        }
+
+        .login-link a {
+
+            color: #0d9488;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           BACK HOME
+        ========================================= */
+
+        .back-home {
+
+            text-align: center;
+
+            margin-top: 17px;
+        }
+
+        .back-home a {
+
+            color: #667085;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+        .back-home a:hover {
+            color: #0d9488;
+        }
+
+
+        /* =========================================
+           PHOTO LABEL
+        ========================================= */
+
+        .photo-label {
+
+            position: absolute;
+
+            bottom: 18px;
+            left: 25px;
+
+            z-index: 3;
+
+            color: rgba(255,255,255,0.85);
+
+            font-size: 12px;
+
+            letter-spacing: 0.4px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .signup-page {
+                padding: 18px;
+            }
+
+            .signup-card {
+                padding: 30px 23px;
+
+                border-radius: 15px;
+            }
+
+            .signup-card h1 {
+                font-size: 24px;
+            }
+
+            .signup-logo a {
+                font-size: 29px;
+            }
+
+            .photo-label {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="signup-page" id="signupPage">
+
+    <div class="signup-card">
+
+        <!-- LOGO -->
+
+        <div class="signup-logo">
+
+            <a href="index.html">
+                Explore<span>PH</span>
+            </a>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h1>
+            Create Your ExplorePH Account
+        </h1>
+
+        <p class="signup-subtitle">
+            Join ExplorePH and discover destinations,
+            food, hotels, restaurants, and experiences
+            across the Philippines.
+        </p>
+
+
+        <!-- SIGNUP FORM -->
+
+        <form onsubmit="createAccount(event)">
+
+            <div class="form-group">
+
+                <label for="fullName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Create a username"
+                    autocomplete="username"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    minlength="6"
+                    autocomplete="new-password"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    minlength="6"
+                    autocomplete="new-password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="signup-button"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+
+        <!-- LOGIN LINK -->
+
+        <div class="login-link">
+
+            Already have an ExplorePH account?
+
+            <a href="login.html">
+                Sign In
+            </a>
+
+        </div>
+
+
+        <!-- HOME -->
+
+        <div class="back-home">
+
+            <a href="index.html">
+                ← Back to ExplorePH
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="photo-label" id="photoLabel">
+        Explore the Philippines with ExplorePH
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================================
+       RANDOM EXPLOREPH BACKGROUND
+    ========================================= */
+
+    const explorePHPhotos = [
+
+        /* DESTINATIONS */
+
+        "bohol 2.jpg",
+        "bohol 3.jpg",
+        "bohol 4.jpg",
+        "bohol 5.jpg",
+
+        "mayon 2.jpg",
+        "mayon 3.jpg",
+        "mayon 4.jpg",
+
+        "Banaue.webp",
+        "banaue 2.jpg",
+        "banaue 3.webp",
+        "banaue 4.jpg",
+
+        "palawan.jpg",
+        "palawan 2.jpg",
+        "palawan 3.jpg",
+        "palawan 4.jpg",
+
+        "siargao.jpg",
+        "siargao2.jpg",
+        "siargao2.webp",
+        "siargao 3.jpg",
+        "siargao 4.jpg",
+
+        "vigan.jpg",
+        "vigan2.jpg",
+        "vigan3.jpg",
+        "vigan4.jpg",
+
+
+        /* HOTELS */
+
+        "boholhotel.jpg",
+        "palawanhotel.webp",
+        "siargaohotel.webp",
+        "viganhotel.jpg",
+        "banauehotel.jpg",
+        "mayonhotel.jpg",
+
+
+        /* RESTAURANTS */
+
+        "boholrestaurants.jpg",
+        "palawanrestaurants.jpg",
+        "siargaorestaurants.jpg",
+        "viganrestaurants.jpg",
+        "banaue restaurants.jpg",
+        "mayonrestaurants.jpg"
+    ];
+
+
+    function setRandomBackground() {
+
+        const page =
+            document.getElementById("signupPage");
+
+        const label =
+            document.getElementById("photoLabel");
+
+
+        const randomIndex =
+            Math.floor(
+                Math.random() * explorePHPhotos.length
+            );
+
+
+        const selectedPhoto =
+            explorePHPhotos[randomIndex];
+
+
+        page.style.backgroundImage =
+            `url("${selectedPhoto}")`;
+
+
+        label.textContent =
+            "Explore the Philippines with ExplorePH";
+    }
+
+
+    setRandomBackground();
+
+
+    /* =========================================
+       CREATE ACCOUNT
+    ========================================= */
+
+    function createAccount(event) {
+
+        event.preventDefault();
+
+
+        const fullName =
+            document
+                .getElementById("fullName")
+                .value
+                .trim();
+
+
+        const username =
+            document
+                .getElementById("username")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        const confirmPassword =
+            document
+                .getElementById("confirmPassword")
+                .value;
+
+
+        /* CHECK PASSWORD */
+
+        if (password !== confirmPassword) {
+
+            alert(
+                "Passwords do not match."
+            );
+
+            return;
+        }
+
+
+        /* CHECK PASSWORD LENGTH */
+
+        if (password.length < 6) {
+
+            alert(
+                "Password must be at least 6 characters."
+            );
+
+            return;
+        }
+
+
+        /* SAVE ACCOUNT */
+
+        localStorage.setItem(
+            "explorephFullName",
+            fullName
+        );
+
+
+        localStorage.setItem(
+            "explorephUsername",
+            username
+        );
+
+
+        localStorage.setItem(
+            "explorephEmail",
+            email
+        );
+
+
+        localStorage.setItem(
+            "explorephPassword",
+            password
+        );
+
+
+        /* SUCCESS MESSAGE */
+
+        alert(
+            "Account created successfully!\n\n" +
+            "You can now sign in to ExplorePH."
+        );
+
+
+        /* GO TO LOGIN */
+
+        window.location.href =
+            "login.html";
+
+    }
+
+</script>
+
+</body>
+</html>
