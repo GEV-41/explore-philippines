@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="script.js"></script>
+<title>ExplorePH - Settings</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --theme-light: #eef6ff;
+    --theme-dark: #1769aa;
+    --text: #172033;
+    --card: rgba(255,255,255,.94);
+    --border: rgba(0,0,0,.10);
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(255,255,255,.88),
+            rgba(255,255,255,.88)
+        ),
+        var(--theme-light);
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: var(--text);
+    transition: .3s ease;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+    --text: #f3f4f6;
+    --card: rgba(25,29,38,.94);
+    --border: rgba(255,255,255,.12);
+
+    background:
+        linear-gradient(
+            rgba(8,12,20,.82),
+            rgba(8,12,20,.82)
+        ),
+        var(--theme-light);
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+    height: 70px;
+
+    background: var(--card);
+
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 30px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.logo {
+    color: var(--theme-dark);
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.back {
+    margin-left: auto;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    padding: 10px 15px;
+
+    border-radius: 8px;
+}
+
+.back:hover {
+    background: rgba(128,128,128,.12);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.container {
+    width: min(1050px, 94%);
+
+    margin: 35px auto 60px;
+}
+
+.page-title {
+    margin-bottom: 25px;
+}
+
+.page-title h1 {
+    font-size: 32px;
+    margin-bottom: 7px;
+}
+
+.page-title p {
+    opacity: .7;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: var(--card);
+
+    backdrop-filter: blur(14px);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 26px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.08);
+}
+
+.card h2 {
+    margin-bottom: 8px;
+}
+
+.description {
+    opacity: .7;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar {
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+
+    background: var(--theme-dark);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    font-weight: bold;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info p {
+    opacity: .65;
+    margin-top: 5px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    display: flex;
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 15px;
+}
+
+button,
+.button {
+    border: none;
+
+    padding: 11px 17px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    display: inline-block;
+}
+
+.primary {
+    background: var(--theme-dark);
+    color: white;
+}
+
+.secondary {
+    background: rgba(128,128,128,.15);
+    color: var(--text);
+}
+
+.primary:hover,
+.secondary:hover {
+    transform: translateY(-1px);
+}
+
+/* =========================
+   THEME GRID
+========================= */
+
+.theme-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(170px, 1fr));
+
+    gap: 15px;
+}
+
+/* THEME TILE */
+
+.theme {
+    height: 105px;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    border: 3px solid transparent;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition: .2s;
+}
+
+.theme:hover {
+    transform: translateY(-3px);
+}
+
+.theme.selected {
+    border-color: var(--theme-dark);
+
+    box-shadow:
+        0 0 0 2px rgba(0,0,0,.08);
+}
+
+/* TWO COLOR DESIGN */
+
+.theme-top {
+    height: 62%;
+
+    background: var(--light);
+}
+
+.theme-bottom {
+    height: 38%;
+
+    background: var(--dark);
+}
+
+/* CHECK */
+
+.check {
+    position: absolute;
+
+    right: 9px;
+    top: 9px;
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: var(--theme-dark);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+}
+
+.theme.selected .check {
+    display: flex;
+}
+
+/* THEME NAME */
+
+.theme-name {
+    position: absolute;
+
+    bottom: 8px;
+    left: 10px;
+
+    color: white;
+
+    font-weight: bold;
+
+    text-shadow: 0 1px 4px rgba(0,0,0,.5);
+}
+
+/* =========================
+   CUSTOM COLORS
+========================= */
+
+.custom-colors {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 18px;
+
+    margin-top: 20px;
+}
+
+.color-control {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.color-control input {
+    width: 65px;
+    height: 45px;
+
+    border: none;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    background: transparent;
+}
+
+.color-code {
+    font-weight: bold;
+
+    opacity: .75;
+}
+
+/* =========================
+   PHOTO THEME
+========================= */
+
+.upload {
+    border: 2px dashed rgba(128,128,128,.5);
+
+    border-radius: 14px;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.upload:hover {
+    border-color: var(--theme-dark);
+
+    background: rgba(128,128,128,.07);
+}
+
+.upload input {
+    display: none;
+}
+
+.upload-icon {
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+.photo-preview {
+    width: 100%;
+
+    height: 250px;
+
+    margin-top: 20px;
+
+    border-radius: 15px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    display: none;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.photo-preview::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.65)
+        );
+}
+
+.preview-label {
+    position: absolute;
+
+    bottom: 20px;
+    left: 20px;
+
+    color: white;
+
+    z-index: 2;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+/* =========================
+   DARK MODE SWITCH
+========================= */
+
+.mode-box {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.mode {
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    border: 2px solid rgba(128,128,128,.25);
+
+    cursor: pointer;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-weight: bold;
+}
+
+.mode.active {
+    background: var(--theme-dark);
+
+    color: white;
+
+    border-color: var(--theme-dark);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px) {
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .back {
+        font-size: 13px;
+    }
+
+    .page-title h1 {
+        font-size: 26px;
+    }
+
+    .profile {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <a href="dashboard.html" class="logo">
+        ExplorePH
+    </a>
+
+    <a href="dashboard.html" class="back">
+        ← Back to ExplorePH
+    </a>
+
+</header>
+
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h1>⚙️ Appearance & Settings</h1>
+
+        <p>
+            Personalize your ExplorePH experience.
+        </p>
+
+    </div>
+
+
+    <!-- PROFILE -->
+
+    <section class="card">
+
+        <h2>👤 Profile</h2>
+
+        <p class="description">
+            Choose the picture that represents you on ExplorePH.
+        </p>
+
+        <div class="profile">
+
+            <div class="avatar" id="avatar">
+                T
+            </div>
+
+            <div class="profile-info">
+
+                <h3 id="userName">
+                    Traveler
+                </h3>
+
+                <p id="userEmail">
+                    traveler@example.com
+                </p>
+
+                <div class="buttons">
+
+                    <label class="button primary">
+
+                        📷 Change Picture
+
+                        <input
+                            type="file"
+                            id="profileInput"
+                            accept="image/*"
+                            hidden
+                        >
+
+                    </label>
+
+                    <button
+                        class="secondary"
+                        onclick="removeProfile()">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COLOR THEMES -->
+
+    <section class="card">
+
+        <h2>🎨 Theme Colors</h2>
+
+        <p class="description">
+            Choose a two-color combination for your ExplorePH interface.
+        </p>
+
+
+        <div class="theme-grid" id="themeGrid">
+
+            <!-- Generated by JavaScript -->
+
+        </div>
+
+
+        <h3 style="margin-top:28px;">
+            Custom Colors
+        </h3>
+
+
+        <div class="custom-colors">
+
+            <div class="color-control">
+
+                <input
+                    type="color"
+                    id="lightColor"
+                    value="#EAF4FF"
+                >
+
+                <div>
+
+                    <div>Light color</div>
+
+                    <div
+                        class="color-code"
+                        id="lightCode">
+                        #EAF4FF
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="color-control">
+
+                <input
+                    type="color"
+                    id="darkColor"
+                    value="#1769AA"
+                >
+
+                <div>
+
+                    <div>Accent color</div>
+
+                    <div
+                        class="color-code"
+                        id="darkCode">
+                        #1769AA
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="saveCustomColors()">
+
+                💾 Apply Custom Colors
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTO THEME -->
+
+    <section class="card">
+
+        <h2>🖼️ Your Own Theme Picture</h2>
+
+        <p class="description">
+            Upload any picture and make it the background of your logged-in ExplorePH website.
+        </p>
+
+
+        <label class="upload">
+
+            <div class="upload-icon">
+                📷
+            </div>
+
+            <strong>
+                Choose your own picture
+            </strong>
+
+            <br>
+
+            <small>
+                Your picture will become the website background.
+            </small>
+
+            <input
+                type="file"
+                id="themeInput"
+                accept="image/*"
+            >
+
+        </label>
+
+
+        <div
+            class="photo-preview"
+            id="photoPreview">
+
+            <div class="preview-label">
+                ExplorePH Preview
+            </div>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                class="primary"
+                onclick="applyPhotoTheme()">
+
+                🖼️ Apply Theme
+
+            </button>
+
+            <button
+                class="secondary"
+                onclick="removePhotoTheme()">
+
+                Remove Picture
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- DARK MODE -->
+
+    <section class="card">
+
+        <h2>🌙 Display Mode</h2>
+
+        <p class="description">
+            Dark Mode changes the entire ExplorePH interface.
+        </p>
+
+
+        <div class="mode-box">
+
+            <button
+                id="lightMode"
+                class="mode"
+                onclick="setMode('light')">
+
+                ☀️ Light Mode
+
+            </button>
+
+
+            <button
+                id="darkMode"
+                class="mode"
+                onclick="setMode('dark')">
+
+                🌙 Dark Mode
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💾 Save Everything</h2>
+
+        <p class="description">
+            Your ExplorePH appearance preferences are saved in this browser.
+        </p>
+
+        <button
+            class="primary"
+            onclick="saveEverything()">
+
+            ✓ Save Settings
+
+        </button>
+
+    </section>
+
+</main>
+
+
+<script>
+
+/* =========================================
+   USER INFORMATION
+========================================= */
+
+const fullName =
+    localStorage.getItem("explorephFullName")
+    || "Traveler";
+
+const email =
+    localStorage.getItem("explorephEmail")
+    || "traveler@example.com";
+
+document.getElementById("userName").textContent =
+    fullName;
+
+document.getElementById("userEmail").textContent =
+    email;
+
+document.getElementById("avatar").textContent =
+    fullName.charAt(0).toUpperCase();
+
+
+/* =========================================
+   THEME COMBINATIONS
+========================================= */
+
+const themes = [
+
+    {
+        name: "Ocean",
+        light: "#E7F3FF",
+        dark: "#1769AA"
+    },
+
+    {
+        name: "Sky",
+        light: "#EAF8FF",
+        dark: "#168AAD"
+    },
+
+    {
+        name: "Indigo",
+        light: "#EEE9FF",
+        dark: "#4F46A5"
+    },
+
+    {
+        name: "Purple",
+        light: "#F2E9FF",
+        dark: "#7B3FC6"
+    },
+
+    {
+        name: "Lavender",
+        light: "#F4EEFF",
+        dark: "#8B5CF6"
+    },
+
+    {
+        name: "Teal",
+        light: "#E5FAF7",
+        dark: "#00897B"
+    },
+
+    {
+        name: "Forest",
+        light: "#EAF7EA",
+        dark: "#237A3B"
+    },
+
+    {
+        name: "Sage",
+        light: "#EEF4EC",
+        dark: "#648A64"
+    },
+
+    {
+        name: "Golden",
+        light: "#FFF8DC",
+        dark: "#C79200"
+    },
+
+    {
+        name: "Sunset",
+        light: "#FFF0E5",
+        dark: "#E67E22"
+    },
+
+    {
+        name: "Rose",
+        light: "#FFEAF0",
+        dark: "#D6336C"
+    },
+
+    {
+        name: "Earth",
+        light: "#F5EBDD",
+        dark: "#795548"
+    }
+
+];
+
+
+const themeGrid =
+    document.getElementById("themeGrid");
+
+
+themes.forEach((theme, index) => {
+
+    const tile =
+        document.createElement("div");
+
+    tile.className = "theme";
+
+    tile.dataset.light = theme.light;
+    tile.dataset.dark = theme.dark;
+
+    tile.innerHTML = `
+
+        <div
+            class="theme-top"
+            style="--light:${theme.light}">
+        </div>
+
+        <div
+            class="theme-bottom"
+            style="--dark:${theme.dark}">
+        </div>
+
+        <span class="theme-name">
+            ${theme.name}
+        </span>
+
+        <span class="check">
+            ✓
+        </span>
+
+    `;
+
+    tile.onclick = function() {
+
+        chooseTheme(
+            theme.light,
+            theme.dark,
+            tile
+        );
+
+    };
+
+    themeGrid.appendChild(tile);
+
+});
+
+
+/* =========================================
+   APPLY COLOR THEME
+========================================= */
+
+function chooseTheme(light, dark, selectedTile) {
+
+    document.documentElement.style
+        .setProperty("--theme-light", light);
+
+    document.documentElement.style
+        .setProperty("--theme-dark", dark);
+
+    document.getElementById("lightColor").value =
+        light;
+
+    document.getElementById("darkColor").value =
+        dark;
+
+    document.getElementById("lightCode").textContent =
+        light.toUpperCase();
+
+    document.getElementById("darkCode").textContent =
+        dark.toUpperCase();
+
+
+    document.querySelectorAll(".theme")
+        .forEach(tile => {
+            tile.classList.remove("selected");
+        });
+
+    selectedTile.classList.add("selected");
+
+
+    localStorage.setItem(
+        "explorephLightColor",
+        light
+    );
+
+    localStorage.setItem(
+        "explorephDarkColor",
+        dark
+    );
+
+
+    applySavedBackground();
+}
+
+
+/* =========================================
+   CUSTOM COLORS
+========================================= */
+
+function saveCustomColors() {
+
+    const light =
+        document.getElementById("lightColor").value;
+
+    const dark =
+        document.getElementById("darkColor").value;
+
+
+    localStorage.setItem(
+        "explorephLightColor",
+        light
+    );
+
+    localStorage.setItem(
+        "explorephDarkColor",
+        dark
+    );
+
+
+    document.documentElement.style
+        .setProperty("--theme-light", light);
+
+    document.documentElement.style
+        .setProperty("--theme-dark", dark);
+
+
+    alert("Your custom color combination has been applied!");
+
+}
+
+
+/* =========================================
+   COLOR PICKERS
+========================================= */
+
+document
+.getElementById("lightColor")
+.addEventListener("input", function() {
+
+    document.getElementById("lightCode")
+        .textContent =
+        this.value.toUpperCase();
+
+});
+
+
+document
+.getElementById("darkColor")
+.addEventListener("input", function() {
+
+    document.getElementById("darkCode")
+        .textContent =
+        this.value.toUpperCase();
+
+});
+
+
+/* =========================================
+   PROFILE PICTURE
+========================================= */
+
+document
+.getElementById("profileInput")
+.addEventListener("change", function(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        const photo =
+            e.target.result;
+
+
+        document.getElementById("avatar").innerHTML =
+            `<img src="${photo}" alt="Profile picture">`;
+
+
+        localStorage.setItem(
+            "explorephProfilePhoto",
+            photo
+        );
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+function removeProfile() {
+
+    localStorage.removeItem(
+        "explorephProfilePhoto"
+    );
+
+
+    document.getElementById("avatar").textContent =
+        fullName.charAt(0).toUpperCase();
+
+}
+
+
+/* =========================================
+   CUSTOM BACKGROUND PICTURE
+========================================= */
+
+let selectedPhoto = null;
+
+
+document
+.getElementById("themeInput")
+.addEventListener("change", function(event) {
+
+    const file = event.target.files[0];
+
+    if (!file) return;
+
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+
+        selectedPhoto =
+            e.target.result;
+
+
+        const preview =
+            document.getElementById("photoPreview");
+
+
+        preview.style.backgroundImage =
+            `url("${selectedPhoto}")`;
+
+
+        preview.style.display =
+            "block";
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+function applyPhotoTheme() {
+
+    if (!selectedPhoto) {
+
+        alert(
+            "Please choose a picture first."
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "explorephThemeImage",
+        selectedPhoto
+    );
+
+
+    applySavedBackground();
+
+
+    alert(
+        "Your picture is now your ExplorePH background!"
+    );
+
+}
+
+
+function removePhotoTheme() {
+
+    localStorage.removeItem(
+        "explorephThemeImage"
+    );
+
+
+    selectedPhoto = null;
+
+
+    document.getElementById("photoPreview")
+        .style.display = "none";
+
+
+    applySavedBackground();
+
+}
+
+
+/* =========================================
+   APPLY WEBSITE BACKGROUND
+========================================= */
+
+function applySavedBackground() {
+
+    const photo =
+        localStorage.getItem(
+            "explorephThemeImage"
+        );
+
+
+    if (photo) {
+
+        document.body.style.backgroundImage = `
+            linear-gradient(
+                rgba(255,255,255,.78),
+                rgba(255,255,255,.78)
+            ),
+            url("${photo}")
+        `;
+
+        document.body.style.backgroundSize =
+            "cover";
+
+        document.body.style.backgroundPosition =
+            "center";
+
+        document.body.style.backgroundAttachment =
+            "fixed";
+
+    } else {
+
+        document.body.style.backgroundImage = `
+            linear-gradient(
+                rgba(255,255,255,.88),
+                rgba(255,255,255,.88)
+            ),
+            var(--theme-light)
+        `;
+
+    }
+
+
+    if (
+        document.body.classList.contains(
+            "dark-mode"
+        )
+    ) {
+
+        if (photo) {
+
+            document.body.style.backgroundImage = `
+                linear-gradient(
+                    rgba(5,8,15,.78),
+                    rgba(5,8,15,.78)
+                ),
+                url("${photo}")
+            `;
+
+        }
+
+    }
+
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+function setMode(mode) {
+
+    if (mode === "dark") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+        localStorage.setItem(
+            "explorephMode",
+            "dark"
+        );
+
+        document.getElementById("darkMode")
+            .classList.add("active");
+
+        document.getElementById("lightMode")
+            .classList.remove("active");
+
+    } else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+        localStorage.setItem(
+            "explorephMode",
+            "light"
+        );
+
+        document.getElementById("lightMode")
+            .classList.add("active");
+
+        document.getElementById("darkMode")
+            .classList.remove("active");
+
+    }
+
+
+    applySavedBackground();
+
+}
+
+
+/* =========================================
+   SAVE EVERYTHING
+========================================= */
+
+function saveEverything() {
+
+    const light =
+        document.getElementById("lightColor").value;
+
+    const dark =
+        document.getElementById("darkColor").value;
+
+
+    localStorage.setItem(
+        "explorephLightColor",
+        light
+    );
+
+    localStorage.setItem(
+        "explorephDarkColor",
+        dark
+    );
+
+
+    alert(
+        "✓ Your ExplorePH settings have been saved!"
+    );
+
+}
+
+
+/* =========================================
+   LOAD SAVED SETTINGS
+========================================= */
+
+function loadSettings() {
+
+    const savedLight =
+        localStorage.getItem(
+            "explorephLightColor"
+        ) || "#E7F3FF";
+
+
+    const savedDark =
+        localStorage.getItem(
+            "explorephDarkColor"
+        ) || "#1769AA";
+
+
+    document.documentElement.style
+        .setProperty(
+            "--theme-light",
+            savedLight
+        );
+
+
+    document.documentElement.style
+        .setProperty(
+            "--theme-dark",
+            savedDark
+        );
+
+
+    document.getElementById("lightColor").value =
+        savedLight;
+
+    document.getElementById("darkColor").value =
+        savedDark;
+
+
+    document.getElementById("lightCode")
+        .textContent =
+        savedLight.toUpperCase();
+
+
+    document.getElementById("darkCode")
+        .textContent =
+        savedDark.toUpperCase();
+
+
+    /* Profile */
+
+    const savedProfile =
+        localStorage.getItem(
+            "explorephProfilePhoto"
+        );
+
+
+    if (savedProfile) {
+
+        document.getElementById("avatar").innerHTML =
+            `<img src="${savedProfile}" alt="Profile picture">`;
+
+    }
+
+
+    /* Theme picture */
+
+    const savedPhoto =
+        localStorage.getItem(
+            "explorephThemeImage"
+        );
+
+
+    if (savedPhoto) {
+
+        selectedPhoto = savedPhoto;
+
+
+        document.getElementById("photoPreview")
+            .style.backgroundImage =
+            `url("${savedPhoto}")`;
+
+
+        document.getElementById("photoPreview")
+            .style.display =
+            "block";
+
+    }
+
+
+    /* Dark mode */
+
+    const mode =
+        localStorage.getItem(
+            "explorephMode"
+        ) || "light";
+
+
+    setMode(mode);
+
+
+    applySavedBackground();
+
+}
+
+
+loadSettings();
+
+</script>
+
+</body>
+</html>
