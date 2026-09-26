@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-
+<script src="script.js"></script>
 <body>
 
     <!-- ================= HEADER ================= -->
@@ -21,7 +21,7 @@
                 Explore<span>PH</span>
             </a>
 
-            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
             <nav id="mainNav">
 
@@ -43,7 +43,11 @@
                 <a href="things to do.html">Things to Do</a>
                 <a href="hotels.html">Hotels</a>
                 <a href="restaurants.html">Restaurants</a>
+
+                <!-- CAPITAL A — IMPORTANT -->
                 <a href="About.html" class="active">About</a>
+
+                <a href="login.html">Sign In</a>
 
             </nav>
 
@@ -166,6 +170,7 @@
 
 
         <div class="experience-grid">
+
 
             <div class="experience">
 
@@ -363,8 +368,15 @@
             <!-- VIGAN -->
 
             <a href="vigan.html" class="destination-card">
+                 <img src="vigan.jpg" alt="Vigan">
 
-                <img src="vigan.jpg" alt="Vigan">
+                <div class="destination-placeholder">
+
+                    <span>
+                        VIGAN
+                    </span>
+
+                </div>
 
                 <div>
 
@@ -400,6 +412,10 @@
 
             <a href="index.html" class="btn">
                 Explore Destinations
+            </a>
+
+            <a href="signup.html" class="btn btn-outline">
+                Create Account
             </a>
 
         </div>
@@ -460,8 +476,6 @@
 
     </footer>
 
-
-    <!-- JAVASCRIPT -->
 
     <script src="script.js"></script>
 
