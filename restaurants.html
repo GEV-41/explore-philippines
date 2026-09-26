@@ -1,315 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hotels | Explore Philippines</title>
+    <title>Restaurants | ExplorePH</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+    <!-- ================= HEADER ================= -->
 
-<header>
-    <div class="nav">
+    <header>
+        <div class="nav">
 
-        <a href="index.html" class="logo">
-            Explore<span>PH</span>
-        </a>
-
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-        <nav id="mainNav">
-
-            <a href="index.html">Home</a>
-
-            <div class="dropdown">
-                <a href="#">Destinations ▾</a>
-
-                <div class="dropdown-menu">
-                    <a href="bohol.html">Bohol</a>
-                    <a href="mayon.html">Mayon Volcano</a>
-                    <a href="Banaue.html">Banaue</a>
-                    <a href="Palawan.html">Palawan</a>
-                    <a href="Siargao.html">Siargao</a>
-                    <a href="vigan.html">Vigan</a>
-                </div>
-            </div>
-
-            <a href="things to do.html">Things to Do</a>
-            <a href="hotels.html" class="active">Hotels</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="About.html">About</a>
-
-            <a href="login.html" class="nav-login">
-                Sign In
+            <a href="index.html" class="logo">
+                Explore<span>PH</span>
             </a>
 
-        </nav>
-    </div>
-</header>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
+            <nav id="mainNav">
 
-<!-- ================= PAGE HEADER ================= -->
+                <a href="index.html">Home</a>
 
-<section class="page-header">
+                <div class="dropdown">
 
-    <p class="eyebrow">STAY IN THE PHILIPPINES</p>
+                    <a href="#">Destinations ▾</a>
 
-    <h1>Hotels & Places to Stay</h1>
+                    <div class="dropdown-menu">
 
-    <p>
-        Discover hotels and accommodations near some of the Philippines'
-        most beautiful destinations.
-    </p>
+                        <a href="bohol.html">
+                            Bohol
+                        </a>
 
-</section>
+                        <a href="mayon.html">
+                            Mayon Volcano
+                        </a>
 
+                        <a href="Banaue.html">
+                            Banaue
+                        </a>
 
-<!-- ================= HOTEL LIST ================= -->
+                        <a href="Palawan.html">
+                            Palawan
+                        </a>
 
-<main class="page">
+                        <a href="Siargao.html">
+                            Siargao
+                        </a>
 
-    <div class="listing-grid">
+                        <a href="vigan.html">
+                            Vigan
+                        </a>
 
+                    </div>
 
-        <!-- BOHOL -->
+                </div>
 
-        <article class="listing">
+                <a href="things to do.html">
+                    Things to Do
+                </a>
 
-            <img
-                src="boholhotel.jpg"
-                alt="Bohol Beach Club"
-            >
+                <a href="hotels.html">
+                    Hotels
+                </a>
 
-            <div>
+                <a href="restaurants.html" class="active">
+                    Restaurants
+                </a>
 
-                <span>Bohol</span>
+                <a href="About.html">
+                    About
+                </a>
 
-                <h2>Bohol Beach Club</h2>
+            </nav>
 
-                <p>
-                    A beachfront resort in Panglao, Bohol,
-                    suitable for travelers exploring the island's
-                    beaches and attractions.
-                </p>
+        </div>
+    </header>
 
-                <strong>★★★★★</strong>
 
-                <p class="hotel-location">
-                    📍 Panglao, Bohol
-                </p>
+    <!-- ================= PAGE HEADER ================= -->
 
-            </div>
+    <section class="page-header">
 
-        </article>
-
-
-        <!-- PALAWAN -->
-
-        <article class="listing">
-
-            <img
-                src="palawanhotel.webp"
-                alt="Hue Hotels and Resorts Puerto Princesa"
-            >
-
-            <div>
-
-                <span>Palawan</span>
-
-                <h2>Hue Hotels & Resorts Puerto Princesa</h2>
-
-                <p>
-                    A modern accommodation in Puerto Princesa,
-                    providing a convenient base for exploring
-                    Palawan's attractions.
-                </p>
-
-                <strong>★★★★★</strong>
-
-                <p class="hotel-location">
-                    📍 Puerto Princesa, Palawan
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- SIARGAO -->
-
-        <article class="listing">
-
-            <img
-                src="siargaohotel.webp"
-                alt="Hue Hotels and Resorts Siargao"
-            >
-
-            <div>
-
-                <span>Siargao</span>
-
-                <h2>Hue Hotels & Resorts Siargao</h2>
-
-                <p>
-                    A modern hotel in General Luna,
-                    offering convenient access to Siargao's
-                    popular tourism and surfing areas.
-                </p>
-
-                <strong>★★★★★</strong>
-
-                <p class="hotel-location">
-                    📍 General Luna, Siargao
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- VIGAN -->
-
-        <article class="listing">
-
-            <img
-                src="viganhotel.jpg"
-                alt="My Vigan Home Hotel"
-            >
-
-            <div>
-
-                <span>Vigan</span>
-
-                <h2>My Vigan Home Hotel</h2>
-
-                <p>
-                    A hotel in Vigan that provides travelers
-                    with convenient access to the city's
-                    historic attractions.
-                </p>
-
-                <strong>★★★★☆</strong>
-
-                <p class="hotel-location">
-                    📍 Vigan City, Ilocos Sur
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- BANAUE -->
-
-        <article class="listing">
-
-            <img
-                src="banauehotel.jpg"
-                alt="Banaue Hotel and Youth Hostel"
-            >
-
-            <div>
-
-                <span>Banaue</span>
-
-                <h2>Banaue Hotel & Youth Hostel</h2>
-
-                <p>
-                    An accommodation in Banaue for travelers
-                    visiting the famous rice terraces and
-                    surrounding mountain landscapes.
-                </p>
-
-                <strong>★★★★☆</strong>
-
-                <p class="hotel-location">
-                    📍 Banaue, Ifugao
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <!-- MAYON -->
-
-        <article class="listing">
-
-            <img
-                src="mayonhotel.jpg"
-                alt="The Oriental Legazpi"
-            >
-
-            <div>
-
-                <span>Mayon / Albay</span>
-
-                <h2>The Oriental Legazpi</h2>
-
-                <p>
-                    A hotel in Legazpi City that provides a
-                    convenient base for travelers exploring
-                    Mayon Volcano and Albay.
-                </p>
-
-                <strong>★★★★☆</strong>
-
-                <p class="hotel-location">
-                    📍 Legazpi City, Albay
-                </p>
-
-            </div>
-
-        </article>
-
-
-    </div>
-
-
-    <!-- ================= MORE HOTELS ================= -->
-
-    <section class="more-hotels">
-
-        <h2>Looking for More Hotels?</h2>
-
-        <p>
-            Want to discover more hotels and accommodations
-            around the Philippines?
+        <p class="eyebrow">
+            TASTE THE PHILIPPINES
         </p>
 
-        <p>
-            Please sign in so you can talk with the
-            <strong>ExplorePH Tourist Manager</strong>
-            and get more hotel recommendations and
-            booking assistance.
-        </p>
+        <h1>
+            Restaurants
+        </h1>
 
-        <a href="login.html" class="hotel-manager-btn">
-            Sign In to Talk to the Tourist Manager
-        </a>
+        <p>
+            Discover places to eat and experience
+            delicious food across the Philippines.
+        </p>
 
     </section>
 
-</main>
+
+    <!-- ================= RESTAURANTS ================= -->
+
+    <main class="page">
+
+        <div class="breadcrumb">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <span>
+                /
+            </span>
+
+            Restaurants
+
+        </div>
 
 
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-    <div class="footer-bottom">
-        © 2026 Explore Philippines
-    </div>
-
-</footer>
+        <div class="listing-grid">
 
 
-<script src="script.js"></script>
+            <!-- ================= BOHOL ================= -->
+
+            <article class="listing">
+
+                <img
+                    src="boholrestaurants.jpg"
+                    alt="Bohol Restaurant"
+                >
+
+                <div>
+
+                    <span>
+                        BOHOL
+                    </span>
+
+                    <h2>
+                        Oasis Restaurant & Beach Club
+                    </h2>
+
+                    <p>
+                        Enjoy delicious meals while
+                        experiencing the beautiful
+                        atmosphere of Bohol.
+                    </p>
+
+                    <p class="restaurant-location">
+                        📍 Bohol, Philippines
+                    </p>
+
+                    <strong>
+                        Restaurant
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= PALAWAN ================= -->
+
+            <article class="listing">
+
+                <img
+                    src="palawanrestaurants.jpg"
+                    alt="Palawan Restaurant"
+                >
+
+                <div>
+
+                    <span>
+                        PALAWAN
+                    </span>
+
+                    <h2>
+                        Kalui Seafood Restaurant
+                    </h2>
+
+                    <p>
+                        Experience seafood and Filipino
+                        flavors in a relaxing island setting.
+                    </p>
+
+                    <p class="restaurant-location">
+                        📍 Puerto Princesa, Palawan
+                    </p>
+
+                    <strong>
+                        Seafood & Filipino
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= SIARGAO ================= -->
+
+            <article class="listing">
+
+                <img
+                    src="siargaorestaurants.jpg"
+                    alt="Siargao Restaurant"
+                >
+
+                <div>
+
+                    <span>
+                        SIARGAO
+                    </span>
+
+                    <h2>
+                        Happiness Restaurant Siargao
+                    </h2>
+
+                    <p>
+                        Enjoy tasty meals and a relaxed
+                        atmosphere in the heart of Siargao.
+                    </p>
+
+                    <p class="restaurant-location">
+                        📍 General Luna, Siargao
+                    </p>
+
+                    <strong>
+                        Filipino & International
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= VIGAN ================= -->
+
+            <article class="listing">
+
+                <img
+                    src="viganrestaurants.jpg"
+                    alt="Vigan Restaurant"
+                >
+
+                <div>
+
+                    <span>
+                        VIGAN
+                    </span>
+
+                    <h2>
+                        Gerry's Vigan
+                    </h2>
+
+                    <p>
+                        Discover Filipino dishes while
+                        enjoying the historic atmosphere
+                        of Vigan.
+                    </p>
+
+                    <p class="restaurant-location">
+                        📍 Vigan City, Ilocos Sur
+                    </p>
+
+                    <strong>
+                        Filipino Cuisine
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= BANAUE ================= -->
+
+            <article class="listing">
+
+                <img
+                    src="banaue restaurants.jpg"
+                    alt="Banaue Restaurant"
+                >
+
+                <div>
+
+                    <span>
+                        BANAUE
+                    </span>
+
+                    <h2>
+                        Uyami's Green View Lodge & Restaurant
+                    </h2>
+
+                    <p>
+                        Enjoy local food while taking in
+                        the beautiful mountain scenery
+                        of Banaue.
+                    </p>
+
+                    <p class="restaurant-location">
+                        📍 Banaue, Ifugao
+                    </p>
+
+                    <strong>
+                        Local & Filipino
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= MAYON ================= -->
+
+            <article class="listing">
+
+                <img
+                    src="mayonrestaurants.jpg"
+                    alt="Mayon Restaurant"
+                >
+
+                <div>
+
+                    <span>
+                        MAYON
+                    </span>
+
+                    <h2>
+                        Tong Yang | SM City Legazpi
+                    </h2>
+
+                    <p>
+                        Enjoy a variety of dishes while
+                        exploring the Legazpi area near
+                        the famous Mayon Volcano.
+                    </p>
+
+                    <p class="restaurant-location">
+                        📍 Legazpi City, Albay
+                    </p>
+
+                    <strong>
+                        Asian & Filipino
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- ================= MORE RESTAURANTS ================= -->
+
+        <div class="more-restaurants">
+
+            <h2>
+                Looking for More Restaurants?
+            </h2>
+
+            <p>
+                Explore more restaurants and discover
+                delicious places to eat during your
+                Philippine adventure.
+            </p>
+
+            <p>
+                Find restaurants based on your
+                destination and travel plans.
+            </p>
+
+            <a
+                href="Tourist.html"
+                class="restaurant-manager-btn"
+            >
+                Explore More Restaurants
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+                    Explore<span>PH</span>
+                </a>
+
+                <p>
+                    Your guide to discovering
+                    the beauty of the Philippines.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="things to do.html">
+                    Things to Do
+                </a>
+
+                <a href="hotels.html">
+                    Hotels
+                </a>
+
+                <a href="restaurants.html">
+                    Restaurants
+                </a>
+
+                <a href="About.html">
+                    About
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Destinations
+                </h4>
+
+                <a href="bohol.html">
+                    Bohol
+                </a>
+
+                <a href="mayon.html">
+                    Mayon Volcano
+                </a>
+
+                <a href="Banaue.html">
+                    Banaue
+                </a>
+
+                <a href="Palawan.html">
+                    Palawan
+                </a>
+
+                <a href="Siargao.html">
+                    Siargao
+                </a>
+
+                <a href="vigan.html">
+                    Vigan
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 ExplorePH. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
