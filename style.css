@@ -2091,3 +2091,12 @@ body.explore-dark header .dropdown > a,
 body.explore-dark header nav > a {
     color: #ffffff !important;
 }
+/* Hide Login and Sign Up buttons */
+.login-btn,
+.signup-btn,
+.login-button,
+.signup-button,
+.sign-up-btn,
+.sign-in-btn {
+    display: none !important;
+}
