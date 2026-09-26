@@ -9,57 +9,78 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<script src="script.js"></script>
+
 <body>
 
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
 <header>
+
     <div class="nav">
 
         <a href="index.html" class="logo">
             Explore<span>PH</span>
         </a>
 
-        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()"
+            aria-label="Open menu">
+            ☰
+        </button>
 
         <nav id="mainNav">
 
             <a href="index.html">Home</a>
 
             <div class="dropdown">
+
                 <a href="#">Destinations ▾</a>
 
                 <div class="dropdown-menu">
+
                     <a href="bohol.html">Bohol</a>
                     <a href="mayon.html">Mayon Volcano</a>
                     <a href="Banaue.html">Banaue</a>
                     <a href="Palawan.html">Palawan</a>
                     <a href="Siargao.html">Siargao</a>
                     <a href="vigan.html">Vigan</a>
+
                 </div>
+
             </div>
 
             <a href="things to do.html">Things to Do</a>
             <a href="hotels.html">Hotels</a>
             <a href="restaurants.html">Restaurants</a>
-            <a href="about.html">About</a>
-            <a href="login.html" class="nav-login">Sign In</a>
+            <a href="About.html">About</a>
 
         </nav>
+
     </div>
+
 </header>
 
 
-<!-- HERO -->
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
 <section class="hero">
 
-    <img src="palawan.jpg" alt="Palawan">
+    <img
+        src="palawan.jpg"
+        alt="Palawan">
 
     <div class="hero-overlay"></div>
 
     <div class="hero-text">
 
-        <p class="eyebrow">DISCOVER THE PHILIPPINES</p>
+        <p class="eyebrow">
+            DISCOVER THE PHILIPPINES
+        </p>
 
         <h1>
             Explore.<br>
@@ -73,13 +94,19 @@
         </p>
 
         <div class="buttons">
-            <a href="#destinations" class="btn">
+
+            <a
+                href="#destinations"
+                class="btn">
                 Explore Destinations
             </a>
 
-            <a href="things to do.html" class="btn-outline">
+            <a
+                href="things to do.html"
+                class="btn-outline">
                 Things to Do
             </a>
+
         </div>
 
     </div>
@@ -87,25 +114,50 @@
 </section>
 
 
-<!-- SEARCH -->
+<!-- =====================================================
+     DESTINATION SEARCH
+     ===================================================== -->
 
 <div class="search-box">
 
     <div>
-        <small>WHERE DO YOU WANT TO GO?</small>
+
+        <small>
+            WHERE DO YOU WANT TO GO?
+        </small>
 
         <select id="destinationSelect">
 
-            <option value="">Choose a destination</option>
+            <option value="">
+                Choose a destination
+            </option>
 
-            <option value="bohol.html">Bohol</option>
-            <option value="mayon.html">Mayon Volcano</option>
-            <option value="Banaue.html">Banaue</option>
-            <option value="Palawan.html">Palawan</option>
-            <option value="Siargao.html">Siargao</option>
-            <option value="vigan.html">Vigan</option>
+            <option value="bohol.html">
+                Bohol
+            </option>
+
+            <option value="mayon.html">
+                Mayon Volcano
+            </option>
+
+            <option value="Banaue.html">
+                Banaue
+            </option>
+
+            <option value="Palawan.html">
+                Palawan
+            </option>
+
+            <option value="Siargao.html">
+                Siargao
+            </option>
+
+            <option value="vigan.html">
+                Vigan
+            </option>
 
         </select>
+
     </div>
 
     <button onclick="goToDestination()">
@@ -115,19 +167,27 @@
 </div>
 
 
-<!-- DESTINATIONS -->
+<!-- =====================================================
+     DESTINATIONS
+     ===================================================== -->
 
-<section class="section" id="destinations">
+<section
+    class="section"
+    id="destinations">
 
     <div class="section-title">
 
         <div>
-            <p class="eyebrow">PLACES TO DISCOVER</p>
+
+            <p class="eyebrow">
+                PLACES TO DISCOVER
+            </p>
 
             <h2>
                 Featured<br>
                 Destinations
             </h2>
+
         </div>
 
         <a href="Tourist.html">
@@ -144,13 +204,19 @@
 
         <article class="destination-card">
 
-            <img src="bohol.jpg" alt="Bohol">
+            <img
+                src="bohol.jpg"
+                alt="Bohol">
 
             <div class="card-body">
 
-                <small>VISAYAS</small>
+                <small>
+                    VISAYAS
+                </small>
 
-                <h3>Bohol</h3>
+                <h3>
+                    Bohol
+                </h3>
 
                 <p>
                     Discover the famous Chocolate Hills,
@@ -170,13 +236,19 @@
 
         <article class="destination-card">
 
-            <img src="mount mayon.jpg" alt="Mayon Volcano">
+            <img
+                src="mount mayon.jpg"
+                alt="Mayon Volcano">
 
             <div class="card-body">
 
-                <small>ALBAY</small>
+                <small>
+                    ALBAY
+                </small>
 
-                <h3>Mayon Volcano</h3>
+                <h3>
+                    Mayon Volcano
+                </h3>
 
                 <p>
                     Experience the dramatic landscape surrounding
@@ -196,13 +268,19 @@
 
         <article class="destination-card">
 
-            <img src="Banaue.webp" alt="Banaue Rice Terraces">
+            <img
+                src="Banaue.webp"
+                alt="Banaue Rice Terraces">
 
             <div class="card-body">
 
-                <small>CORDILLERA</small>
+                <small>
+                    CORDILLERA
+                </small>
 
-                <h3>Banaue</h3>
+                <h3>
+                    Banaue
+                </h3>
 
                 <p>
                     Explore the breathtaking rice terraces,
@@ -222,13 +300,19 @@
 
         <article class="destination-card">
 
-            <img src="palawan.jpg" alt="Palawan">
+            <img
+                src="palawan.jpg"
+                alt="Palawan">
 
             <div class="card-body">
 
-                <small>WESTERN PHILIPPINES</small>
+                <small>
+                    WESTERN PHILIPPINES
+                </small>
 
-                <h3>Palawan</h3>
+                <h3>
+                    Palawan
+                </h3>
 
                 <p>
                     Enjoy spectacular islands, clear waters,
@@ -248,13 +332,19 @@
 
         <article class="destination-card">
 
-            <img src="siargao.jpg" alt="Siargao">
+            <img
+                src="siargao.jpg"
+                alt="Siargao">
 
             <div class="card-body">
 
-                <small>SURIGAO DEL NORTE</small>
+                <small>
+                    SURIGAO DEL NORTE
+                </small>
 
-                <h3>Siargao</h3>
+                <h3>
+                    Siargao
+                </h3>
 
                 <p>
                     Discover surfing, island adventures,
@@ -274,13 +364,19 @@
 
         <article class="destination-card">
 
-            <img src="vigan.jpg" alt="Vigan">
+            <img
+                src="vigan.jpg"
+                alt="Vigan">
 
             <div class="card-body">
 
-                <small>ILOCOS SUR</small>
+                <small>
+                    ILOCOS SUR
+                </small>
 
-                <h3>Vigan</h3>
+                <h3>
+                    Vigan
+                </h3>
 
                 <p>
                     Walk through historic streets and experience
@@ -300,7 +396,9 @@
 </section>
 
 
-<!-- EXPERIENCES -->
+<!-- =====================================================
+     EXPERIENCES
+     ===================================================== -->
 
 <section class="dark-section">
 
@@ -308,7 +406,9 @@
 
         <div>
 
-            <p class="eyebrow">PLAN YOUR JOURNEY</p>
+            <p class="eyebrow">
+                PLAN YOUR JOURNEY
+            </p>
 
             <h2>
                 Find your<br>
@@ -322,11 +422,14 @@
 
     <div class="experience-grid">
 
+
         <div class="experience">
 
             <span>🏝️</span>
 
-            <h3>Beaches</h3>
+            <h3>
+                Beaches
+            </h3>
 
             <p>
                 Find beautiful coastlines,
@@ -340,7 +443,9 @@
 
             <span>🏔️</span>
 
-            <h3>Adventure</h3>
+            <h3>
+                Adventure
+            </h3>
 
             <p>
                 Discover mountains, trails,
@@ -354,7 +459,9 @@
 
             <span>🏛️</span>
 
-            <h3>Culture</h3>
+            <h3>
+                Culture
+            </h3>
 
             <p>
                 Experience Philippine history,
@@ -368,7 +475,9 @@
 
             <span>🍴</span>
 
-            <h3>Food</h3>
+            <h3>
+                Food
+            </h3>
 
             <p>
                 Discover local dishes and
@@ -382,11 +491,15 @@
 </section>
 
 
-<!-- CTA -->
+<!-- =====================================================
+     CTA
+     ===================================================== -->
 
 <section class="cta">
 
-    <p class="eyebrow">YOUR NEXT ADVENTURE</p>
+    <p class="eyebrow">
+        YOUR NEXT ADVENTURE
+    </p>
 
     <h2>
         The Philippines<br>
@@ -398,22 +511,31 @@
         activities, hotels and restaurants.
     </p>
 
-    <a href="Tourist.html" class="btn">
+    <a
+        href="Tourist.html"
+        class="btn">
         Start Exploring
     </a>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer>
 
     <div class="footer-grid">
 
+
+        <!-- BRAND -->
+
         <div>
 
-            <a href="index.html" class="logo">
+            <a
+                href="index.html"
+                class="logo">
                 Explore<span>PH</span>
             </a>
 
@@ -426,36 +548,51 @@
         </div>
 
 
+        <!-- EXPLORE -->
+
         <div>
 
-            <h4>Explore</h4>
+            <h4>
+                Explore
+            </h4>
 
-            <a href="index.html">Home</a>
-            <a href="Tourist.html">Destinations</a>
-            <a href="things to do.html">Things to Do</a>
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="Tourist.html">
+                Destinations
+            </a>
+
+            <a href="things to do.html">
+                Things to Do
+            </a>
 
         </div>
 
 
-        <div>
-
-            <h4>Discover</h4>
-
-            <a href="hotels.html">Hotels</a>
-            <a href="restaurants.html">Restaurants</a>
-            <a href="about.html">About</a>
-
-        </div>
-
+        <!-- DISCOVER -->
 
         <div>
 
-            <h4>Account</h4>
+            <h4>
+                Discover
+            </h4>
 
-            <a href="login.html">Sign In</a>
-            <a href="signup.html">Create Account</a>
+            <a href="hotels.html">
+                Hotels
+            </a>
+
+            <a href="restaurants.html">
+                Restaurants
+            </a>
+
+            <a href="About.html">
+                About
+            </a>
 
         </div>
+
 
     </div>
 
@@ -468,6 +605,10 @@
 
 </footer>
 
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 
 <script src="script.js"></script>
 
