@@ -1,484 +1,340 @@
+
+Palawan.html
+100%
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About | ExplorePH</title>
+    <title>Palawan | Explore Philippines</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
-<script src="script.js"></script>
+
 <body>
 
-    <!-- ================= HEADER ================= -->
+<header>
 
-    <header>
-        <div class="nav">
+    <div class="nav">
 
-            <a href="index.html" class="logo">
-                Explore<span>PH</span>
+        <a href="index.html" class="logo">
+            Explore<span>PH</span>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="mainNav">
+
+            <a href="index.html">
+                Home
             </a>
 
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <div class="dropdown">
 
-            <nav id="mainNav">
+                <a href="#">
+                    Destinations ▾
+                </a>
 
-                <a href="index.html">Home</a>
+                <div class="dropdown-menu">
 
-                <div class="dropdown">
-                    <a href="#">Destinations ▾</a>
+                    <a href="bohol.html">
+                        Bohol
+                    </a>
 
-                    <div class="dropdown-menu">
-                        <a href="bohol.html">Bohol</a>
-                        <a href="mayon.html">Mayon Volcano</a>
-                        <a href="Banaue.html">Banaue</a>
-                        <a href="Palawan.html">Palawan</a>
-                        <a href="Siargao.html">Siargao</a>
-                        <a href="vigan.html">Vigan</a>
-                    </div>
+                    <a href="mayon.html">
+                        Mayon Volcano
+                    </a>
+
+                    <a href="Banaue.html">
+                        Banaue
+                    </a>
+
+                    <a href="Palawan.html">
+                        Palawan
+                    </a>
+
+                    <a href="Siargao.html">
+                        Siargao
+                    </a>
+
+                    <a href="vigan.html">
+                        Vigan
+                    </a>
+
                 </div>
 
-                <a href="things to do.html">Things to Do</a>
-                <a href="hotels.html">Hotels</a>
-                <a href="restaurants.html">Restaurants</a>
+            </div>
 
-                <!-- CAPITAL A — IMPORTANT -->
-                <a href="About.html" class="active">About</a>
+            <a href="things to do.html">
+                Things to Do
+            </a>
 
-                <a href="login.html">Sign In</a>
+            <a href="hotels.html">
+                Hotels
+            </a>
 
-            </nav>
+            <a href="restaurants.html">
+                Restaurants
+            </a>
 
-        </div>
-    </header>
+            <a href="About.html">
+                About
+            </a>
+
+            <a href="login.html" class="nav-login">
+                Sign In
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
 
 
-    <!-- ================= PAGE HEADER ================= -->
+<!-- =========================
+     PALAWAN HERO
+========================= -->
 
-    <section class="page-header">
+<section class="destination-hero">
+
+    <img
+        src="palawan.jpg"
+        alt="Palawan"
+    >
+
+    <div class="hero-overlay"></div>
+
+    <div class="destination-hero-text">
+
+        <p class="eyebrow">
+            PALAWAN
+        </p>
+
+        <h1>
+            Palawan
+        </h1>
+
+        <p>
+            Clear waters, dramatic islands, lagoons and
+            tropical adventures.
+        </p>
+
+    </div>
+
+</section>
+
+
+<main class="page">
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        /
+
+        Palawan
+
+    </div>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="destination-intro">
 
         <div>
 
             <p class="eyebrow">
-                WELCOME TO EXPLOREPH
-            </p>
-
-            <h1>
-                About ExplorePH
-            </h1>
-
-            <p>
-                Your guide to discovering beautiful places,
-                exciting experiences, and unforgettable
-                adventures across the Philippines.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= ABOUT ================= -->
-
-    <section class="section">
-
-        <div class="about-content">
-
-            <div class="about-box">
-
-                <p class="eyebrow">
-                    OUR STORY
-                </p>
-
-                <h2>
-                    Discover the Philippines With Us
-                </h2>
-
-                <p>
-                    ExplorePH is a travel guide designed to help
-                    people discover some of the most beautiful
-                    and interesting destinations in the Philippines.
-                </p>
-
-                <p>
-                    From amazing beaches and islands to historic
-                    cities and breathtaking mountains, the
-                    Philippines has countless places waiting
-                    to be explored.
-                </p>
-
-                <p>
-                    ExplorePH brings destinations, activities,
-                    hotels, and restaurants together in one
-                    convenient travel guide.
-                </p>
-
-            </div>
-
-
-            <div class="about-box">
-
-                <p class="eyebrow">
-                    OUR PURPOSE
-                </p>
-
-                <h2>
-                    Explore. Experience. Remember.
-                </h2>
-
-                <p>
-                    Our goal is to make discovering the Philippines
-                    simple, enjoyable, and inspiring.
-                </p>
-
-                <p>
-                    Whether you are looking for adventure,
-                    relaxation, culture, food, or beautiful scenery,
-                    ExplorePH can help you start planning your
-                    next journey.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= WHAT WE OFFER ================= -->
-
-    <section class="dark-section">
-
-        <div class="section-title">
-
-            <p class="eyebrow">
-                WHAT WE OFFER
+                DISCOVER PALAWAN
             </p>
 
             <h2>
-                Plan Your Philippine Adventure
+                Discover island paradise.
             </h2>
 
             <p>
-                Explore destinations and discover experiences
-                for your next trip.
+                Palawan offers unforgettable island scenery,
+                beaches, marine experiences and opportunities
+                to explore nature.
             </p>
 
         </div>
 
 
-        <div class="experience-grid">
+        <div class="quick-info">
 
+            <strong>
+                📍 Location
+            </strong>
 
-            <div class="experience">
+            <span>
+                Palawan, Philippines
+            </span>
 
-                <h3>🏝 Destinations</h3>
+            <strong>
+                🌊 Known for
+            </strong>
 
-                <p>
-                    Discover beautiful destinations
-                    across the Philippines.
-                </p>
-
-                <a href="index.html">
-                    Explore Places →
-                </a>
-
-            </div>
-
-
-            <div class="experience">
-
-                <h3>🌄 Things to Do</h3>
-
-                <p>
-                    Find exciting activities and
-                    unforgettable experiences.
-                </p>
-
-                <a href="things to do.html">
-                    Explore Activities →
-                </a>
-
-            </div>
-
-
-            <div class="experience">
-
-                <h3>🏨 Hotels</h3>
-
-                <p>
-                    Find comfortable places to stay
-                    during your adventure.
-                </p>
-
-                <a href="hotels.html">
-                    Explore Hotels →
-                </a>
-
-            </div>
-
-
-            <div class="experience">
-
-                <h3>🍽 Restaurants</h3>
-
-                <p>
-                    Discover delicious food and
-                    restaurants to try.
-                </p>
-
-                <a href="restaurants.html">
-                    Explore Restaurants →
-                </a>
-
-            </div>
+            <span>
+                Islands & lagoons
+            </span>
 
         </div>
 
     </section>
 
 
-    <!-- ================= FEATURED DESTINATIONS ================= -->
+    <!-- EXPERIENCES -->
 
-    <section class="section">
+    <section>
 
         <div class="section-title">
 
-            <p class="eyebrow">
-                FEATURED DESTINATIONS
-            </p>
+            <div>
 
-            <h2>
-                Explore the Philippines
-            </h2>
+                <p class="eyebrow">
+                    EXPERIENCES
+                </p>
 
-            <p>
-                Begin your journey by discovering
-                some of the country's amazing destinations.
-            </p>
+                <h2>
+                    Things to Do
+                </h2>
+
+            </div>
 
         </div>
 
 
-        <div class="destination-grid">
+        <div class="activity-grid">
 
 
-            <!-- BOHOL -->
+            <!-- PALAWAN IMAGE 2 -->
 
-            <a href="bohol.html" class="destination-card">
+            <div class="activity-card">
 
-                <img src="bohol.jpg" alt="Bohol">
+                <img
+                    src="palawan 2.jpg"
+                    alt="Palawan island"
+                >
 
-                <div>
+                <h3>
+                    Island Hopping
+                </h3>
 
-                    <h3>Bohol</h3>
+                <p>
+                    Explore beautiful islands and coastal
+                    scenery.
+                </p>
 
-                    <p>
-                        Discover beautiful beaches,
-                        nature, and the Chocolate Hills.
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <!-- MAYON -->
-
-            <a href="mayon.html" class="destination-card">
-
-                <img src="mount mayon.jpg" alt="Mayon Volcano">
-
-                <div>
-
-                    <h3>Mayon Volcano</h3>
-
-                    <p>
-                        Experience the breathtaking
-                        landscape surrounding Mayon.
-                    </p>
-
-                </div>
-
-            </a>
+            </div>
 
 
-            <!-- BANAUE -->
+            <!-- PALAWAN IMAGE 3 -->
 
-            <a href="Banaue.html" class="destination-card">
+            <div class="activity-card">
 
-                <img src="Banaue.webp" alt="Banaue">
+                <img
+                    src="palawan 3.jpg"
+                    alt="Palawan water"
+                >
 
-                <div>
+                <h3>
+                    Explore the Water
+                </h3>
 
-                    <h3>Banaue</h3>
+                <p>
+                    Enjoy marine adventures and clear
+                    tropical waters.
+                </p>
 
-                    <p>
-                        Discover the famous Banaue
-                        Rice Terraces and mountain scenery.
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <!-- PALAWAN -->
-
-            <a href="Palawan.html" class="destination-card">
-
-                <img src="palawan.jpg" alt="Palawan">
-
-                <div>
-
-                    <h3>Palawan</h3>
-
-                    <p>
-                        Explore crystal-clear waters,
-                        islands, and tropical landscapes.
-                    </p>
-
-                </div>
-
-            </a>
+            </div>
 
 
-            <!-- SIARGAO -->
+            <!-- PALAWAN IMAGE 4 -->
 
-            <a href="Siargao.html" class="destination-card">
+            <div class="activity-card">
 
-                <img src="siargao.jpg" alt="Siargao">
+                <img
+                    src="palawan 4.jpg"
+                    alt="Palawan nature"
+                >
 
-                <div>
+                <h3>
+                    Discover Nature
+                </h3>
 
-                    <h3>Siargao</h3>
+                <p>
+                    Experience forests, beaches and
+                    dramatic landscapes.
+                </p>
 
-                    <p>
-                        Discover surfing, beaches,
-                        islands, and tropical adventures.
-                    </p>
-
-                </div>
-
-            </a>
-
-
-            <!-- VIGAN -->
-
-            <a href="vigan.html" class="destination-card">
-                 <img src="vigan.jpg" alt="Vigan">
-
-                <div class="destination-placeholder">
-
-                    <span>
-                        VIGAN
-                    </span>
-
-                </div>
-
-                <div>
-
-                    <h3>Vigan</h3>
-
-                    <p>
-                        Experience historic streets,
-                        culture, architecture, and heritage.
-                    </p>
-
-                </div>
-
-            </a>
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- ================= CALL TO ACTION ================= -->
+    <!-- PLAN YOUR TRIP -->
 
-    <section class="cta">
+    <section class="info-banner">
 
         <h2>
-            Ready to Explore the Philippines?
+            Plan your Palawan adventure
         </h2>
 
         <p>
-            Start discovering your next destination today.
+            Find accommodation and dining options.
         </p>
 
         <div class="buttons">
 
-            <a href="index.html" class="btn">
-                Explore Destinations
+            <a
+                href="hotels.html"
+                class="btn"
+            >
+                View Hotels
             </a>
 
-            <a href="signup.html" class="btn btn-outline">
-                Create Account
+            <a
+                href="restaurants.html"
+                class="btn-outline-dark"
+            >
+                Restaurants
             </a>
 
         </div>
 
     </section>
 
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <div class="footer-content">
-
-            <div>
-
-                <h3>
-                    ExplorePH
-                </h3>
-
-                <p>
-                    Your guide to discovering
-                    the beauty of the Philippines.
-                </p>
-
-            </div>
+</main>
 
 
-            <div>
+<footer>
 
-                <h3>
-                    Explore
-                </h3>
+    <div class="footer-bottom">
 
-                <a href="index.html">
-                    Home
-                </a>
+        © 2026 Explore Philippines
 
-                <a href="About.html">
-                    About
-                </a>
+    </div>
 
-                <a href="hotels.html">
-                    Hotels
-                </a>
-
-                <a href="restaurants.html">
-                    Restaurants
-                </a>
-
-            </div>
-
-        </div>
+</footer>
 
 
-        <p class="copyright">
-            © 2026 ExplorePH. All Rights Reserved.
-        </p>
-
-    </footer>
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 
 </html>
+Displaying Palawan.html.
