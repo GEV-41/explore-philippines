@@ -312,4 +312,19 @@ document.addEventListener(
         setExplorePHRandomBackground();
 
     }
+   function goToDestination() {
+
+    const select =
+        document.getElementById("destinationSelect");
+
+    if (!select) return;
+
+    const destination =
+        select.value;
+
+    if (destination) {
+        window.location.href = destination;
+    }
+
+}
 );
