@@ -1,3 +1,4 @@
+
 /* =========================================================
    EXPLOREPH — CLEAN GLOBAL JAVASCRIPT
    =========================================================
@@ -971,3 +972,4 @@ document.addEventListener(
 
     }
 );
+Displaying script.js.
