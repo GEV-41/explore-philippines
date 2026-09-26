@@ -1,0 +1,2388 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ExplorePH | Dashboard</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: #ffffff;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 12, 24, 0.78),
+            rgba(0, 0, 0, 0.70)
+        ),
+        url("bohol 2.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    transition: background-image .4s ease;
+}
+
+
+/* ================================
+   TOP BAR
+================================ */
+
+.topbar {
+    height: 68px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 24px;
+
+    background: rgba(8, 18, 30, .90);
+
+    border-bottom: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(14px);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    margin-right: 35px;
+}
+
+.logo span {
+    color: #48c9b0;
+}
+
+
+/* SEARCH */
+
+.search-area {
+    position: relative;
+
+    flex: 1;
+
+    max-width: 600px;
+}
+
+.search-input {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,.10);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.search-input::placeholder {
+    color: #c5ccd3;
+}
+
+.search-input:focus {
+    background: rgba(255,255,255,.15);
+
+    border-color: #48c9b0;
+}
+
+
+/* SEARCH RESULTS */
+
+.search-results {
+    position: absolute;
+
+    top: 50px;
+    left: 0;
+    right: 0;
+
+    display: none;
+
+    background: #111d29;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+
+    z-index: 2000;
+}
+
+.search-result {
+    padding: 13px 16px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid rgba(255,255,255,.07);
+}
+
+.search-result:hover {
+    background: rgba(72,201,176,.12);
+}
+
+.result-title {
+    font-weight: 700;
+}
+
+.result-location {
+    color: #9faab5;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+
+/* TOP RIGHT */
+
+.top-right {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.top-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.top-button:hover {
+    background: rgba(255,255,255,.10);
+}
+
+
+/* ACCOUNT */
+
+.account {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 5px 9px;
+
+    border-radius: 22px;
+
+    cursor: pointer;
+}
+
+.account:hover {
+    background: rgba(255,255,255,.09);
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #1769aa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-weight: 700;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.account-name {
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* ================================
+   LAYOUT
+================================ */
+
+.layout {
+    display: flex;
+
+    min-height: calc(100vh - 68px);
+}
+
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar {
+    width: 225px;
+
+    flex-shrink: 0;
+
+    padding: 20px 13px;
+
+    background: rgba(7, 17, 28, .88);
+
+    border-right: 1px solid rgba(255,255,255,.10);
+
+    backdrop-filter: blur(14px);
+}
+
+.explore-btn {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #1769aa;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+.explore-btn:hover {
+    background: #2182ca;
+}
+
+.menu-title {
+    padding: 13px 12px 7px;
+
+    color: #83909c;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+}
+
+.menu-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    margin-bottom: 3px;
+
+    border-radius: 8px;
+
+    color: #dce3e9;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: .2s;
+}
+
+.menu-item:hover {
+    background: rgba(255,255,255,.08);
+
+    color: white;
+}
+
+.menu-item.active {
+    background: rgba(23,105,170,.35);
+
+    color: #ffffff;
+
+    font-weight: 700;
+}
+
+.menu-icon {
+    width: 20px;
+
+    text-align: center;
+
+    font-size: 16px;
+}
+
+.divider {
+    height: 1px;
+
+    background: rgba(255,255,255,.10);
+
+    margin: 15px 7px;
+}
+
+
+/* ================================
+   MAIN
+================================ */
+
+.main {
+    flex: 1;
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+}
+
+
+/* WELCOME */
+
+.welcome {
+    margin-bottom: 30px;
+}
+
+.welcome h1 {
+    margin: 0 0 8px;
+
+    font-size: 32px;
+}
+
+.welcome h1 span {
+    color: #48c9b0;
+}
+
+.welcome p {
+    margin: 0;
+
+    color: #d0d7dd;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   FEATURED
+================================ */
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.section-header h2 {
+    margin: 0;
+
+    font-size: 19px;
+}
+
+.view-all {
+    color: #48c9b0;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+/* DESTINATION CARDS */
+
+.destination-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.destination-card {
+    min-height: 215px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    background: #172534;
+
+    transition: .25s;
+}
+
+.destination-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35);
+}
+
+.destination-image {
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.destination-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 20%,
+            rgba(0,0,0,.88)
+        );
+}
+
+.destination-info {
+    position: absolute;
+
+    z-index: 2;
+
+    bottom: 0;
+
+    left: 0;
+    right: 0;
+
+    padding: 17px;
+}
+
+.destination-info h3 {
+    margin: 0 0 5px;
+
+    font-size: 18px;
+}
+
+.destination-info p {
+    margin: 0;
+
+    color: #d1d7dd;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ================================
+   QUICK LINKS
+================================ */
+
+.quick-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+.quick-card {
+    padding: 18px;
+
+    border-radius: 11px;
+
+    background: rgba(10, 25, 39, .80);
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+.quick-card:hover {
+    background: rgba(23,105,170,.35);
+
+    transform: translateY(-2px);
+}
+
+.quick-icon {
+    font-size: 23px;
+
+    margin-bottom: 10px;
+}
+
+.quick-card h3 {
+    margin: 0 0 5px;
+
+    font-size: 14px;
+}
+
+.quick-card p {
+    margin: 0;
+
+    color: #aeb8c1;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* ================================
+   MANAGER
+================================ */
+
+.manager-card {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(23,105,170,.85),
+            rgba(10,38,62,.88)
+        );
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.20);
+}
+
+.manager-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+.manager-avatar {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    color: #1769aa;
+
+    font-weight: 800;
+}
+
+.manager-card h3 {
+    margin: 0 0 4px;
+
+    font-size: 15px;
+}
+
+.manager-card p {
+    margin: 0;
+
+    color: #d7e4ee;
+
+    font-size: 12px;
+}
+
+.chat-button {
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #1769aa;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.chat-button:hover {
+    background: #edf7fa;
+}
+
+
+/* ================================
+   ACCOUNT MENU
+================================ */
+
+.account-menu {
+    position: fixed;
+
+    top: 61px;
+
+    right: 20px;
+
+    width: 255px;
+
+    display: none;
+
+    z-index: 3000;
+
+    background: #111d29;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+}
+
+.account-header {
+    padding: 17px;
+
+    border-bottom: 1px solid rgba(255,255,255,.09);
+}
+
+.account-header strong {
+    display: block;
+
+    margin-bottom: 4px;
+}
+
+.account-header span {
+    color: #9ba7b2;
+
+    font-size: 12px;
+}
+
+.account-link {
+    display: block;
+
+    padding: 12px 17px;
+
+    color: #e1e7ec;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+.account-link:hover {
+    background: rgba(255,255,255,.07);
+}
+
+
+/* ================================
+   CHAT
+================================ */
+
+.chat-window {
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    width: 350px;
+
+    height: 480px;
+
+    display: none;
+
+    flex-direction: column;
+
+    z-index: 5000;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #101c28;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+
+.chat-header {
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #1769aa;
+}
+
+.chat-manager {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.chat-manager .manager-avatar {
+    width: 38px;
+    height: 38px;
+}
+
+.chat-status {
+    margin-top: 2px;
+
+    color: #d9f7e9;
+
+    font-size: 10px;
+}
+
+.close-chat {
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.chat-body {
+    flex: 1;
+
+    padding: 15px;
+
+    overflow-y: auto;
+
+    background: #0b151f;
+}
+
+.message {
+    max-width: 80%;
+
+    padding: 9px 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 11px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.manager-message {
+    background: #172534;
+
+    color: #e1e7ec;
+}
+
+.user-message {
+    margin-left: auto;
+
+    background: #1769aa;
+
+    color: white;
+}
+
+.chat-input {
+    display: flex;
+
+    gap: 7px;
+
+    padding: 10px;
+
+    background: #101c28;
+
+    border-top: 1px solid rgba(255,255,255,.10);
+}
+
+.chat-input input {
+    flex: 1;
+
+    padding: 10px 13px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    background: #172534;
+
+    color: white;
+
+    outline: none;
+}
+
+.chat-input input::placeholder {
+    color: #87939e;
+}
+
+.chat-input button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #1769aa;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+.mobile-menu {
+    display: none;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    margin-right: 10px;
+}
+
+
+@media(max-width: 1000px) {
+
+    .destination-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media(max-width: 750px) {
+
+    .topbar {
+        padding: 0 12px;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .logo {
+        margin-right: 12px;
+
+        font-size: 20px;
+    }
+
+    .search-area {
+        display: none;
+    }
+
+    .account-name {
+        display: none;
+    }
+
+    .sidebar {
+        position: fixed;
+
+        top: 68px;
+
+        bottom: 0;
+
+        left: -240px;
+
+        z-index: 2500;
+
+        transition: .25s;
+
+        box-shadow: 8px 0 25px rgba(0,0,0,.3);
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .main {
+        padding: 25px 15px;
+    }
+
+    .welcome h1 {
+        font-size: 25px;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .manager-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .chat-window {
+        left: 12px;
+        right: 12px;
+
+        bottom: 12px;
+
+        width: auto;
+    }
+}
+
+
+@media(max-width: 430px) {
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =================================
+     TOP BAR
+================================= -->
+
+<header class="topbar">
+
+    <button
+        class="mobile-menu"
+        onclick="toggleSidebar()"
+    >
+        ☰
+    </button>
+
+
+    <a href="dashboard.html" class="logo">
+        Explore<span>PH</span>
+    </a>
+
+
+    <div class="search-area">
+
+        <input
+            type="text"
+            id="destinationSearch"
+            class="search-input"
+            placeholder="Search destinations, places, food..."
+            oninput="searchDestinations()"
+            autocomplete="off"
+        >
+
+        <div
+            id="searchResults"
+            class="search-results"
+        ></div>
+
+    </div>
+
+
+    <div class="top-right">
+
+        <button
+            class="top-button"
+            title="Messages"
+            onclick="openManagerChat()"
+        >
+            💬
+        </button>
+
+        <button
+            class="top-button"
+            title="Notifications"
+        >
+            🔔
+        </button>
+
+
+        <div
+            class="account"
+            onclick="toggleAccountMenu()"
+        >
+
+            <div
+                class="avatar"
+                id="avatarLetter"
+            >
+                T
+            </div>
+
+            <span
+                class="account-name"
+                id="topUserName"
+            >
+                Traveler
+            </span>
+
+            <span>⌄</span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =================================
+     ACCOUNT MENU
+================================= -->
+
+<div
+    class="account-menu"
+    id="accountMenu"
+>
+
+    <div class="account-header">
+
+        <strong id="accountFullName">
+            Traveler
+        </strong>
+
+        <span id="accountEmail">
+            traveler@example.com
+        </span>
+
+    </div>
+
+
+    <a
+        href="profile.html"
+        class="account-link"
+    >
+        👤 My Profile
+    </a>
+
+
+    <a
+        href="profile.html"
+        class="account-link"
+    >
+        ⚙ Account Settings
+    </a>
+
+
+    <a
+        href="About.html"
+        class="account-link"
+    >
+        ⭐ About ExplorePH
+    </a>
+
+
+    <a
+        href="#"
+        class="account-link"
+        onclick="logoutUser(event)"
+    >
+        🚪 Sign Out
+    </a>
+
+</div>
+
+
+<!-- =================================
+     PAGE
+================================= -->
+
+<div class="layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <button
+            class="explore-btn"
+            onclick="focusSearch()"
+        >
+            + Explore
+        </button>
+
+
+        <div class="menu-title">
+            Explore
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="menu-item active"
+        >
+            <span class="menu-icon">⌂</span>
+            Home
+        </a>
+
+
+        <a
+            href="destinations.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">◉</span>
+            Destinations
+        </a>
+
+
+        <a
+            href="hotels.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">▣</span>
+            Hotels
+        </a>
+
+
+        <a
+            href="restaurants.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">♨</span>
+            Restaurants
+        </a>
+
+
+        <a
+            href="things to do.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">◇</span>
+            Things to Do
+        </a>
+
+
+        <div class="menu-title">
+            Community
+        </div>
+
+
+        <a
+            href="community.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">◎</span>
+            Community
+        </a>
+
+
+        <a
+            href="messages.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">✉</span>
+            Messages
+        </a>
+
+
+        <a
+            href="bookings.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">□</span>
+            My Bookings
+        </a>
+
+
+        <div class="divider"></div>
+
+
+        <div class="menu-title">
+            ExplorePH
+        </div>
+
+
+        <a
+            href="About.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">★</span>
+            About
+        </a>
+
+
+        <a
+            href="index.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">↗</span>
+            Public ExplorePH
+        </a>
+
+
+        <a
+            href="profile.html"
+            class="menu-item"
+        >
+            <span class="menu-icon">⚙</span>
+            Settings
+        </a>
+
+
+        <a
+            href="#"
+            class="menu-item"
+            onclick="logoutUser(event)"
+        >
+            <span class="menu-icon">→</span>
+            Sign Out
+        </a>
+
+    </aside>
+
+
+    <!-- =================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="main">
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <h1>
+                Welcome back,
+                <span id="welcomeName">
+                    Traveler
+                </span>
+            </h1>
+
+            <p>
+                Discover beautiful places, food, hotels and experiences across the Philippines.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             DESTINATIONS
+        ================================= -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2>
+                    Featured Destinations
+                </h2>
+
+                <a
+                    href="destinations.html"
+                    class="view-all"
+                >
+                    View all →
+                </a>
+
+            </div>
+
+
+            <div class="destination-grid">
+
+
+                <!-- BOHOL -->
+
+                <div
+                    class="destination-card"
+                    onclick="window.location.href='bohol.html'"
+                >
+
+                    <div
+                        class="destination-image"
+                        style="
+                        background-image:
+                        url('bohol 2.jpg');
+                        "
+                    ></div>
+
+
+                    <div class="destination-info">
+
+                        <h3>
+                            Bohol
+                        </h3>
+
+                        <p>
+                            Chocolate Hills, beaches and island experiences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PALAWAN -->
+
+                <div
+                    class="destination-card"
+                    onclick="window.location.href='Palawan.html'"
+                >
+
+                    <div
+                        class="destination-image"
+                        style="
+                        background-image:
+                        url('palawan.jpg');
+                        "
+                    ></div>
+
+
+                    <div class="destination-info">
+
+                        <h3>
+                            Palawan
+                        </h3>
+
+                        <p>
+                            Islands, lagoons, beaches and natural beauty.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SIARGAO -->
+
+                <div
+                    class="destination-card"
+                    onclick="window.location.href='Siargao.html'"
+                >
+
+                    <div
+                        class="destination-image"
+                        style="
+                        background-image:
+                        url('siargao.jpg');
+                        "
+                    ></div>
+
+
+                    <div class="destination-info">
+
+                        <h3>
+                            Siargao
+                        </h3>
+
+                        <p>
+                            Surfing, island adventures and tropical scenery.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BANAUE -->
+
+                <div
+                    class="destination-card"
+                    onclick="window.location.href='Banaue.html'"
+                >
+
+                    <div
+                        class="destination-image"
+                        style="
+                        background-image:
+                        url('Banaue.webp');
+                        "
+                    ></div>
+
+
+                    <div class="destination-info">
+
+                        <h3>
+                            Banaue
+                        </h3>
+
+                        <p>
+                            Rice terraces, mountains and cultural experiences.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAYON -->
+
+                <div
+                    class="destination-card"
+                    onclick="window.location.href='mayon.html'"
+                >
+
+                    <div
+                        class="destination-image"
+                        style="
+                        background-image:
+                        url('mayon 2.jpg');
+                        "
+                    ></div>
+
+
+                    <div class="destination-info">
+
+                        <h3>
+                            Mayon Volcano
+                        </h3>
+
+                        <p>
+                            Scenic landscapes and unforgettable Albay adventures.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VIGAN -->
+
+                <div
+                    class="destination-card"
+                    onclick="window.location.href='vigan.html'"
+                >
+
+                    <div
+                        class="destination-image"
+                        style="
+                        background-image:
+                        url('vigan.jpg');
+                        "
+                    ></div>
+
+
+                    <div class="destination-info">
+
+                        <h3>
+                            Vigan
+                        </h3>
+
+                        <p>
+                            Heritage streets, culture and local cuisine.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             QUICK ACCESS
+        ================================= -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2>
+                    Explore More
+                </h2>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+
+                <a
+                    href="hotels.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        🏨
+                    </div>
+
+                    <h3>
+                        Hotels
+                    </h3>
+
+                    <p>
+                        Find places to stay for your trip.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="restaurants.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        🍽️
+                    </div>
+
+                    <h3>
+                        Restaurants
+                    </h3>
+
+                    <p>
+                        Discover local food and dining.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="things to do.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        🏄
+                    </div>
+
+                    <h3>
+                        Things to Do
+                    </h3>
+
+                    <p>
+                        Find activities and experiences.
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="bookings.html"
+                    class="quick-card"
+                >
+
+                    <div class="quick-icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        My Bookings
+                    </h3>
+
+                    <p>
+                        Check your travel plans.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             MANAGER
+        ================================= -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2>
+                    ExplorePH Travel Support
+                </h2>
+
+            </div>
+
+
+            <div class="manager-card">
+
+                <div class="manager-left">
+
+                    <div class="manager-avatar">
+                        EP
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            ExplorePH Manager ✓
+                        </h3>
+
+                        <p>
+                            Available to help with destinations, hotels, restaurants and bookings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="chat-button"
+                    onclick="openManagerChat()"
+                >
+                    Chat with Manager
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- =================================
+     MANAGER CHAT
+================================= -->
+
+<div
+    class="chat-window"
+    id="chatWindow"
+>
+
+    <div class="chat-header">
+
+        <div class="chat-manager">
+
+            <div class="manager-avatar">
+                EP
+            </div>
+
+            <div>
+
+                <strong>
+                    ExplorePH Manager
+                </strong>
+
+                <div class="chat-status">
+                    ● Available
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="close-chat"
+            onclick="closeManagerChat()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="chat-body"
+        id="chatBody"
+    >
+
+        <div class="message manager-message">
+            Hello! Welcome to ExplorePH. How can we help with your trip?
+        </div>
+
+        <div class="message manager-message">
+            You can ask about destinations, hotels, restaurants, activities or bookings.
+        </div>
+
+    </div>
+
+
+    <div class="chat-input">
+
+        <input
+            type="text"
+            id="chatMessage"
+            placeholder="Type a message..."
+            onkeydown="handleChatKey(event)"
+        >
+
+        <button onclick="sendMessage()">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   LOGIN CHECK
+========================================= */
+
+if (
+    localStorage.getItem("explorephLoggedIn") !== "true"
+) {
+    window.location.href = "login.html";
+}
+
+
+/* =========================================
+   USER INFORMATION
+========================================= */
+
+const fullName =
+    localStorage.getItem("explorephFullName")
+    || "Traveler";
+
+const username =
+    localStorage.getItem("explorephUsername")
+    || "traveler";
+
+const email =
+    localStorage.getItem("explorephEmail")
+    || "traveler@example.com";
+
+
+document.getElementById("welcomeName").textContent =
+    fullName;
+
+document.getElementById("topUserName").textContent =
+    fullName;
+
+document.getElementById("accountFullName").textContent =
+    fullName;
+
+document.getElementById("accountEmail").textContent =
+    email;
+
+
+const firstLetter =
+    fullName.trim().charAt(0).toUpperCase();
+
+document.getElementById("avatarLetter").textContent =
+    firstLetter || "T";
+
+
+/* =========================================
+   PROFILE PHOTO
+========================================= */
+
+const profilePhoto =
+    localStorage.getItem("explorephProfilePhoto");
+
+if (profilePhoto) {
+
+    const avatar =
+        document.getElementById("avatarLetter");
+
+    avatar.textContent = "";
+
+    avatar.style.backgroundImage =
+        `url("${profilePhoto}")`;
+
+}
+
+
+/* =========================================
+   RANDOM BACKGROUND
+========================================= */
+
+const explorePHBackgrounds = [
+
+    /* DESTINATIONS */
+
+    "bohol 2.jpg",
+    "bohol 3.jpg",
+    "bohol 4.jpg",
+    "bohol 5.jpg",
+
+    "mayon 2.jpg",
+    "mayon 3.jpg",
+    "mayon 4.jpg",
+
+    "Banaue.webp",
+    "banaue 2.jpg",
+    "banaue 3.webp",
+    "banaue 4.jpg",
+
+    "palawan.jpg",
+    "palawan 2.jpg",
+    "palawan 3.jpg",
+    "palawan 4.jpg",
+
+    "siargao.jpg",
+    "siargao2.jpg",
+    "siargao2.webp",
+    "siargao 3.jpg",
+    "siargao 4.jpg",
+
+    "vigan.jpg",
+    "vigan2.jpg",
+    "vigan3.jpg",
+    "vigan4.jpg",
+
+    /* HOTELS */
+
+    "boholhotel.jpg",
+    "palawanhotel.webp",
+    "siargaohotel.webp",
+    "viganhotel.jpg",
+    "banauehotel.jpg",
+    "mayonhotel.jpg",
+
+    /* RESTAURANTS */
+
+    "boholrestaurants.jpg",
+    "palawanrestaurants.jpg",
+    "siargaorestaurants.jpg",
+    "viganrestaurants.jpg",
+    "banaue restaurants.jpg",
+    "mayonrestaurants.jpg"
+];
+
+
+function setRandomBackground() {
+
+    const randomIndex =
+        Math.floor(
+            Math.random() *
+            explorePHBackgrounds.length
+        );
+
+    const image =
+        explorePHBackgrounds[randomIndex];
+
+    document.body.style.backgroundImage =
+        `linear-gradient(
+            rgba(0, 12, 24, 0.78),
+            rgba(0, 0, 0, 0.70)
+        ),
+        url("${image}")`;
+}
+
+
+setRandomBackground();
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+function toggleSidebar() {
+
+    document
+        .getElementById("sidebar")
+        .classList.toggle("open");
+
+}
+
+
+function focusSearch() {
+
+    const search =
+        document.getElementById(
+            "destinationSearch"
+        );
+
+    if (window.innerWidth <= 750) {
+
+        search.style.display = "block";
+
+    }
+
+    search.focus();
+}
+
+
+/* =========================================
+   ACCOUNT MENU
+========================================= */
+
+function toggleAccountMenu() {
+
+    const menu =
+        document.getElementById(
+            "accountMenu"
+        );
+
+    menu.style.display =
+        menu.style.display === "block"
+            ? "none"
+            : "block";
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+const destinations = [
+
+    {
+        name: "Bohol",
+        location: "Central Visayas",
+        page: "bohol.html"
+    },
+
+    {
+        name: "Palawan",
+        location: "MIMAROPA",
+        page: "Palawan.html"
+    },
+
+    {
+        name: "Siargao",
+        location: "Surigao del Norte",
+        page: "Siargao.html"
+    },
+
+    {
+        name: "Banaue",
+        location: "Ifugao",
+        page: "Banaue.html"
+    },
+
+    {
+        name: "Mayon Volcano",
+        location: "Albay",
+        page: "mayon.html"
+    },
+
+    {
+        name: "Vigan",
+        location: "Ilocos Sur",
+        page: "vigan.html"
+    },
+
+    {
+        name: "Cebu",
+        location: "Central Visayas",
+        page: "index.html"
+    },
+
+    {
+        name: "Boracay",
+        location: "Aklan",
+        page: "index.html"
+    },
+
+    {
+        name: "Manila",
+        location: "Metro Manila",
+        page: "index.html"
+    },
+
+    {
+        name: "Baguio",
+        location: "Benguet",
+        page: "index.html"
+    },
+
+    {
+        name: "Davao",
+        location: "Davao Region",
+        page: "index.html"
+    },
+
+    {
+        name: "Camiguin",
+        location: "Northern Mindanao",
+        page: "index.html"
+    },
+
+    {
+        name: "Coron",
+        location: "Palawan",
+        page: "Palawan.html"
+    },
+
+    {
+        name: "El Nido",
+        location: "Palawan",
+        page: "Palawan.html"
+    },
+
+    {
+        name: "Sagada",
+        location: "Mountain Province",
+        page: "index.html"
+    },
+
+    {
+        name: "San Juanico Bridge",
+        location: "Leyte - Samar",
+        page: "index.html"
+    },
+
+    {
+        name: "MacArthur Landing Memorial",
+        location: "Palo, Leyte",
+        page: "index.html"
+    },
+
+    {
+        name: "Iloilo",
+        location: "Western Visayas",
+        page: "index.html"
+    },
+
+    {
+        name: "Dumaguete",
+        location: "Negros Oriental",
+        page: "index.html"
+    }
+
+];
+
+
+function searchDestinations() {
+
+    const input =
+        document.getElementById(
+            "destinationSearch"
+        );
+
+    const results =
+        document.getElementById(
+            "searchResults"
+        );
+
+    const query =
+        input.value
+            .trim()
+            .toLowerCase();
+
+
+    results.innerHTML = "";
+
+
+    if (!query) {
+
+        results.style.display = "none";
+
+        return;
+    }
+
+
+    const matches =
+        destinations.filter(function(item) {
+
+            return (
+                item.name
+                    .toLowerCase()
+                    .includes(query)
+
+                ||
+
+                item.location
+                    .toLowerCase()
+                    .includes(query)
+            );
+
+        });
+
+
+    if (!matches.length) {
+
+        results.innerHTML =
+            `
+            <div class="search-result">
+                <div class="result-title">
+                    No destination found
+                </div>
+
+                <div class="result-location">
+                    Try another Philippine destination.
+                </div>
+            </div>
+            `;
+
+        results.style.display = "block";
+
+        return;
+    }
+
+
+    matches.forEach(function(item) {
+
+        const result =
+            document.createElement("div");
+
+        result.className =
+            "search-result";
+
+
+        result.innerHTML =
+
+            `
+            <div class="result-title">
+                ${item.name}
+            </div>
+
+            <div class="result-location">
+                ${item.location}
+            </div>
+            `;
+
+
+        result.onclick = function() {
+
+            window.location.href =
+                item.page;
+
+        };
+
+
+        results.appendChild(result);
+
+    });
+
+
+    results.style.display = "block";
+}
+
+
+/* =========================================
+   CLOSE SEARCH WHEN CLICKING OUTSIDE
+========================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const searchArea =
+            document.querySelector(
+                ".search-area"
+            );
+
+        const results =
+            document.getElementById(
+                "searchResults"
+            );
+
+
+        if (
+            searchArea &&
+            !searchArea.contains(event.target)
+        ) {
+
+            results.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   MANAGER CHAT
+========================================= */
+
+function openManagerChat() {
+
+    document
+        .getElementById("chatWindow")
+        .style.display = "flex";
+
+}
+
+
+function closeManagerChat() {
+
+    document
+        .getElementById("chatWindow")
+        .style.display = "none";
+
+}
+
+
+function handleChatKey(event) {
+
+    if (event.key === "Enter") {
+
+        sendMessage();
+
+    }
+
+}
+
+
+function sendMessage() {
+
+    const input =
+        document.getElementById(
+            "chatMessage"
+        );
+
+    const message =
+        input.value.trim();
+
+
+    if (!message) {
+        return;
+    }
+
+
+    const chatBody =
+        document.getElementById(
+            "chatBody"
+        );
+
+
+    const userMessage =
+        document.createElement("div");
+
+    userMessage.className =
+        "message user-message";
+
+    userMessage.textContent =
+        message;
+
+
+    chatBody.appendChild(
+        userMessage
+    );
+
+
+    input.value = "";
+
+
+    chatBody.scrollTop =
+        chatBody.scrollHeight;
+
+
+    /* Prototype response */
+
+    setTimeout(function() {
+
+        const managerMessage =
+            document.createElement("div");
+
+        managerMessage.className =
+            "message manager-message";
+
+        managerMessage.textContent =
+            "Thank you for contacting ExplorePH. We can assist you with destinations, hotels, restaurants, activities and bookings.";
+
+
+        chatBody.appendChild(
+            managerMessage
+        );
+
+
+        chatBody.scrollTop =
+            chatBody.scrollHeight;
+
+    }, 700);
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function logoutUser(event) {
+
+    if (event) {
+        event.preventDefault();
+    }
+
+
+    localStorage.removeItem(
+        "explorephLoggedIn"
+    );
+
+
+    window.location.href =
+        "login.html";
+}
+
+</script>
+
+</body>
+</html>
+Displaying dashboard.html.
